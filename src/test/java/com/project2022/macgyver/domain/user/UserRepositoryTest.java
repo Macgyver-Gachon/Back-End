@@ -52,5 +52,7 @@ public class UserRepositoryTest {
         assertThat(user.getUser_id()).isEqualTo(user_id);
         assertThat(user.getUser_pwd()).isEqualTo(user_pwd);
     }
+
      */
+
 }
