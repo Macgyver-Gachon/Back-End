@@ -14,32 +14,45 @@ public class User extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(nullable = false)
-    private String name;
-
-    @Column(nullable = false)
-    private String email;
+    private Long id;    //자동증가 인덱스넘버
 
     @Column
-    private String picture;
+    private String userid;     //email이 아이디로 들어감.
+
+    @Column
+    private String username;   //사용자 이름 name
+
+    @Column
+    private String tel;     //휴대폰 전화번호 mobile
+
+    @Column
+    private String sex;     //성별 정보 gender
+
+    @Column
+    private String birthyear;       //출생연도 birthyear
+
+    @Column
+    private String birthday;       //생일 birthday MM-dd
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Role role;
 
     @Builder
-    public User(String user_id, String name, String email, String picture, Role role){
-        this.name=name;
-        this.email=email;
-        this.picture=picture;
+    public User(String userid, String username, String tel, String sex, String birthyear, String birthday, Role role){
+        this.userid=userid;
+        this.username=username;
+        this.tel=tel;
+        this.sex=sex;
+        this.birthyear=birthyear;
+        this.birthday=birthday;
         this.role=role;
     }
 
-    public User update(String name){
-        this.name=name;
-        this.picture=picture;
+    public User update(String username){
+        this.username=username;
+        this.tel=tel;
+
         return this;
     }
 

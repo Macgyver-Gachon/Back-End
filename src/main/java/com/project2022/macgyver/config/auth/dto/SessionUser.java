@@ -9,13 +9,19 @@ import java.io.Serializable;
 
 @Getter
 public class SessionUser implements Serializable {
-    public String name;
-    public String email;
-    public String picture;
-    //수정필
+    private String userid;      //email
+    private String username;    //name
+    private String tel;          //mobile
+    private String sex;          //gender
+    private String birthyear;
+    private String birthday;
+    //수정함.
     public SessionUser(User user){
-        this.name=user.getName();
-        this.email=user.getEmail();
-        this.picture=user.getPicture();
+        this.userid=user.getUserid();
+        this.username=user.getUsername();
+        this.tel=user.getTel();
+        this.sex=user.getSex();
+        this.birthyear=user.getBirthyear();
+        this.birthday=user.getBirthday();
     }
 }
