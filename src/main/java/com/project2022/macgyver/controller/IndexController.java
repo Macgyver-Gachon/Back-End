@@ -22,16 +22,19 @@ public class IndexController {
         return "index";
     }
 
+    //테스트
     @GetMapping("/admin")
     public String admin() {
         return "admin";
     }
 
+    //테스트
     @GetMapping("/all")
     public String all() {
         return "all";
     }
 
+    //테스트
     @GetMapping("/useronly")
     public String useronly() {
         return "useronly";
