@@ -26,11 +26,19 @@ public class UserApiController {
     }
 
     //회원탈퇴
-    @DeleteMapping("/user/mypage/{userid}")
-    public String delete(@PathVariable String userid) {
-        //SessionUser user = (SessionUser) httpSession.getAttribute("user");
+    @DeleteMapping("/user/mypage")
+    public String delete(String userid) {
+        SessionUser user = (SessionUser) httpSession.getAttribute("user");
         userService.delete(userid);
         return userid;
     }
+
+    /*
+    @DeleteMapping("/user/mypage/{userid}")
+    public String delete(@PathVariable String userid) {
+        userService.delete(userid);
+        return userid;
+    }
+    */
 
 }
