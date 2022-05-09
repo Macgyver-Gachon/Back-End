@@ -1,23 +1,26 @@
 package com.project2022.macgyver.domain.user;
 
 import com.project2022.macgyver.domain.BaseTimeEntity;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Getter
+@AllArgsConstructor
 @NoArgsConstructor
+@Builder
+@Getter
 @Entity
 public class User extends BaseTimeEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;    //자동증가 인덱스넘버
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //auto increase
+    private Long id;
 
     @Column
-    private String userid;     //email이 아이디로 들어감.
+    private String userid;     //email이 아이디
 
     @Column
     private String username;   //사용자 이름 name

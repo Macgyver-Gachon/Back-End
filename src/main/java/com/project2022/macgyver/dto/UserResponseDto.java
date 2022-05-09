@@ -16,7 +16,7 @@ public class UserResponseDto {
         this.userid = entity.getUserid();
         this.username = entity.getUsername();
         this.tel = entity.getTel();
-        this.sex=entity.getSex();
+        this.sex =entity.getSex();
         this.birthyear=entity.getBirthyear();
         this.birthday=entity.getBirthday();
     }
