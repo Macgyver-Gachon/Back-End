@@ -34,6 +34,8 @@ dependencies {
     //(3)
     implementation('org.springframework.boot:spring-boot-starter-web')
     runtimeOnly 'mysql:mysql-connector-java'
+    implementation 'mysql:mysql-connector-java'
+
     // lombok
     implementation('org.projectlombok:lombok')
     annotationProcessor('org.projectlombok:lombok')
