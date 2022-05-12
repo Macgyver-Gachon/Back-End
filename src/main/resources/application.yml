@@ -5,7 +5,7 @@ spring:
       suffix: .jsp
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://macgyver.ckmsnq0fjpg3.ap-northeast-2.rds.amazonaws.com:3306/macgyver?validationQuery="select 1"
+    url: jdbc:mysql://macgyver.ckmsnq0fjpg3.ap-northeast-2.rds.amazonaws.com:3306/macgyver?useSSL=false
     username: admin
     password: admin1234
   jpa:
