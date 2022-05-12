@@ -2,10 +2,10 @@ com/project2022/macgyver/config/auth/LoginUser.java
  com.project2022.macgyver.config.auth.LoginUser
 com/project2022/macgyver/domain/admin/AdminRepository.java
  com.project2022.macgyver.domain.admin.AdminRepository
-com/project2022/macgyver/service/AdminService.java
- com.project2022.macgyver.service.AdminService
-com/project2022/macgyver/dto/UserListResponseDto.java
- com.project2022.macgyver.dto.UserListResponseDto
+com/project2022/macgyver/domain/prefer/PreferRepository.java
+ com.project2022.macgyver.domain.prefer.PreferRepository
+com/project2022/macgyver/controller/AdminApiController.java
+ com.project2022.macgyver.controller.AdminApiController
 com/project2022/macgyver/domain/user/Role.java
  com.project2022.macgyver.domain.user.Role
 com/project2022/macgyver/config/WebConfig.java
@@ -14,16 +14,12 @@ com/project2022/macgyver/controller/HelloController.java
  com.project2022.macgyver.controller.HelloController
 com/project2022/macgyver/domain/user/UserRepository.java
  com.project2022.macgyver.domain.user.UserRepository
-com/project2022/macgyver/Application.java
- com.project2022.macgyver.Application
-com/project2022/macgyver/config/auth/LoginUserArgumentResolver.java
- com.project2022.macgyver.config.auth.LoginUserArgumentResolver
 com/project2022/macgyver/domain/BaseTimeEntity.java
  com.project2022.macgyver.domain.BaseTimeEntity
-com/project2022/macgyver/controller/AdminApiController.java
- com.project2022.macgyver.controller.AdminApiController
-com/project2022/macgyver/config/auth/SecurityConfig.java
- com.project2022.macgyver.config.auth.SecurityConfig
+com/project2022/macgyver/config/auth/LoginUserArgumentResolver.java
+ com.project2022.macgyver.config.auth.LoginUserArgumentResolver
+com/project2022/macgyver/config/JpaConfig.java
+ com.project2022.macgyver.config.JpaConfig
 com/project2022/macgyver/domain/prefer/Prefer.java
  com.project2022.macgyver.domain.prefer.Prefer
  com.project2022.macgyver.domain.prefer.Prefer$PreferBuilder
@@ -39,18 +35,24 @@ com/project2022/macgyver/config/auth/dto/OAuthAttributes.java
  com.project2022.macgyver.config.auth.dto.OAuthAttributes$OAuthAttributesBuilder
 com/project2022/macgyver/service/UserService.java
  com.project2022.macgyver.service.UserService
+com/project2022/macgyver/config/auth/SecurityConfig.java
+ com.project2022.macgyver.config.auth.SecurityConfig
 com/project2022/macgyver/dto/PreferSaveRequestDto.java
  com.project2022.macgyver.dto.PreferSaveRequestDto
  com.project2022.macgyver.dto.PreferSaveRequestDto$PreferSaveRequestDtoBuilder
-com/project2022/macgyver/dto/UserResponseDto.java
- com.project2022.macgyver.dto.UserResponseDto
 com/project2022/macgyver/service/PreferService.java
  com.project2022.macgyver.service.PreferService
-com/project2022/macgyver/domain/prefer/PreferRepository.java
- com.project2022.macgyver.domain.prefer.PreferRepository
 com/project2022/macgyver/controller/PreferApiController.java
  com.project2022.macgyver.controller.PreferApiController
+com/project2022/macgyver/service/AdminService.java
+ com.project2022.macgyver.service.AdminService
+com/project2022/macgyver/dto/UserListResponseDto.java
+ com.project2022.macgyver.dto.UserListResponseDto
+com/project2022/macgyver/Application.java
+ com.project2022.macgyver.Application
 com/project2022/macgyver/controller/UserApiController.java
  com.project2022.macgyver.controller.UserApiController
+com/project2022/macgyver/dto/UserResponseDto.java
+ com.project2022.macgyver.dto.UserResponseDto
 com/project2022/macgyver/controller/IndexController.java
  com.project2022.macgyver.controller.IndexController
