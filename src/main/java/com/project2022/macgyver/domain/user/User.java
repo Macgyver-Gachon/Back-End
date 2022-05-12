@@ -16,7 +16,7 @@ public class User extends BaseTimeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;    //자동증가 인덱스넘버
 
-    @Column
+    @Column(unique=true)        //방금추가함
     private String userid;     //email이 아이디로 들어감.
 
     @Column
@@ -49,7 +49,7 @@ public class User extends BaseTimeEntity {
         this.role=role;
     }
 
-    public User update(String username){
+    public User update(String username, String tel){
         this.username=username;
         this.tel=tel;
 
@@ -59,6 +59,8 @@ public class User extends BaseTimeEntity {
     public String getRoleKey(){
         return this.role.getKey();
     }
+
+
 
 }
 

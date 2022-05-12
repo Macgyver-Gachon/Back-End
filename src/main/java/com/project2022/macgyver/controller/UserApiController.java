@@ -27,10 +27,9 @@ public class UserApiController {
 
     //회원탈퇴
     @DeleteMapping("/user/mypage")
-    public String delete(String userid) {
+    public void delete(String userid) {
         SessionUser user = (SessionUser) httpSession.getAttribute("user");
-        userService.delete(userid);
-        return userid;
+        userService.delete(user.getUserid());
     }
 
     /*
