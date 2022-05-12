@@ -5,9 +5,9 @@ spring:
       suffix: .jsp
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3309/macgyver?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-    username: root
-    password: 1234
+    url: jdbc:mysql://macgyver.ckmsnq0fjpg3.ap-northeast-2.rds.amazonaws.com:3306/macgyver
+    username: admin
+    password: admin1234
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     open-in-view: false
