@@ -19,7 +19,7 @@ public class User extends BaseTimeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY) //auto increase
     private Long id;
 
-    @Column
+    @Column(unique=true)        //방금추가함
     private String userid;     //email이 아이디
 
     @Column
@@ -52,7 +52,7 @@ public class User extends BaseTimeEntity {
         this.role=role;
     }
 
-    public User update(String username){
+    public User update(String username, String tel){
         this.username=username;
         this.tel=tel;
 

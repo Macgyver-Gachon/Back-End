@@ -2,8 +2,8 @@ com/project2022/macgyver/config/auth/LoginUser.java
  com.project2022.macgyver.config.auth.LoginUser
 com/project2022/macgyver/config/auth/dto/SessionUser.java
  com.project2022.macgyver.config.auth.dto.SessionUser
-com/project2022/macgyver/controller/PostsApiController.java
- com.project2022.macgyver.controller.PostsApiController
+com/project2022/macgyver/domain/BaseTimeEntity.java
+ com.project2022.macgyver.domain.BaseTimeEntity
 com/project2022/macgyver/domain/user/Role.java
  com.project2022.macgyver.domain.user.Role
 com/project2022/macgyver/config/WebConfig.java
@@ -38,8 +38,8 @@ com/project2022/macgyver/dto/UserResponseDto.java
  com.project2022.macgyver.dto.UserResponseDto
 com/project2022/macgyver/controller/UserApiController.java
  com.project2022.macgyver.controller.UserApiController
-com/project2022/macgyver/controller/AdminApiController.java
- com.project2022.macgyver.controller.AdminApiController
+com/project2022/macgyver/controller/IndexController.java
+ com.project2022.macgyver.controller.IndexController
 com/project2022/macgyver/dto/PostsDto.java
  com.project2022.macgyver.dto.PostsDto
  com.project2022.macgyver.dto.PostsDto$Request
@@ -51,8 +51,6 @@ com/project2022/macgyver/service/CommentService.java
  com.project2022.macgyver.service.CommentService
 com/project2022/macgyver/domain/posts/PostsRepository.java
  com.project2022.macgyver.domain.posts.PostsRepository
-com/project2022/macgyver/domain/BaseTimeEntity.java
- com.project2022.macgyver.domain.BaseTimeEntity
 com/project2022/macgyver/domain/user/User.java
  com.project2022.macgyver.domain.user.User
  com.project2022.macgyver.domain.user.User$UserBuilder
@@ -68,5 +66,7 @@ com/project2022/macgyver/domain/posts/Posts.java
  com.project2022.macgyver.domain.posts.Posts$PostsBuilder
 com/project2022/macgyver/Application.java
  com.project2022.macgyver.Application
-com/project2022/macgyver/controller/IndexController.java
- com.project2022.macgyver.controller.IndexController
+com/project2022/macgyver/controller/AdminApiController.java
+ com.project2022.macgyver.controller.AdminApiController
+com/project2022/macgyver/controller/PostsApiController.java
+ com.project2022.macgyver.controller.PostsApiController

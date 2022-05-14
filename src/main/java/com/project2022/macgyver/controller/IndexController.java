@@ -1,10 +1,10 @@
 package com.project2022.macgyver.controller;
 
 import javax.servlet.http.HttpSession;
-
 import com.project2022.macgyver.config.auth.LoginUser;
 import com.project2022.macgyver.config.auth.dto.SessionUser;
 import com.project2022.macgyver.domain.posts.Posts;
+import com.project2022.macgyver.domain.prefer.PreferRepository;
 import com.project2022.macgyver.dto.CommentDto;
 import com.project2022.macgyver.dto.PostsDto;
 import com.project2022.macgyver.dto.UserResponseDto;
@@ -27,6 +27,7 @@ public class IndexController {
 
     private final HttpSession httpSession;
     private final PostsService postsService;
+    private final PreferRepository preferRepository;
 
     @GetMapping("/")
     public String index(Model model){
@@ -37,7 +38,7 @@ public class IndexController {
         return "index";
     }
 
-    @GetMapping("/posts")                 /* default page = 0, size = 10  */
+    @GetMapping("/page")                 /* default page = 0, size = 10  */
     public String index(Model model, @PageableDefault(sort = "id", direction = Sort.Direction.DESC)
             Pageable pageable, @LoginUser UserResponseDto user) {
         Page<Posts> list = postsService.pageList(pageable);
@@ -52,7 +53,7 @@ public class IndexController {
         model.addAttribute("hasNext", list.hasNext());
         model.addAttribute("hasPrev", list.hasPrevious());
 
-        return "posts";
+        return "page";
     }
     /* 글 작성 */
     @GetMapping("/posts/write")
@@ -126,4 +127,17 @@ public class IndexController {
     public String useronly() {
         return "useronly";
     }
+
+    //테스트
+    /*
+    @GetMapping("/camp/recommend")
+    public String recommend() {
+        SessionUser user = (SessionUser) httpSession.getAttribute("user");
+        if(preferRepository.existsByUser_userid(user.getUserid())){
+            return "recommend";
+        }
+        return "prefer";
+    }
+
+     */
 }

@@ -18,10 +18,11 @@ public class PostsApiController {
 
     private final PostsService postsService;
 
-    // 생성
+    /* CREATE */
     @PostMapping("/posts")
-    public ResponseEntity save(@RequestBody PostsDto.Request dto, @LoginUser UserResponseDto user) {
-        return ResponseEntity.ok(postsService.save(dto, user.getUsername()));
+    public int save(@RequestBody PostsDto.Request dto, @LoginUser UserResponseDto user) {
+//        return ResponseEntity.ok(postsService.save(dto, user.getUsername()));
+        return 1;
     }
 
     /* READ */
