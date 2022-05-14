@@ -114,5 +114,6 @@ public class Camp {
         this.tourEraCl = (String) o[43];
         this.trlerAcmpnyAt = (String) o[44];
         this.wtrplCo = (int) o[45];
+        this.gnrlSiteCo = (int) o[46];
     }
 }

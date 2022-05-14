@@ -1,3 +1,5 @@
+server:
+  port: 8081
 spring:
   mvc:
     view:
@@ -5,16 +7,16 @@ spring:
       suffix: .jsp
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/macgyver?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-    username: root
-    password: 1234
+    url: jdbc:mysql://macgyver.ckmsnq0fjpg3.ap-northeast-2.rds.amazonaws.com:3306/macgyver?useSSL=false
+    username: admin
+    password: admin1234
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     open-in-view: false
     show-sql: true
     hibernate:
       format_sql: true
-      ddl-auto: update
+      ddl-auto: none
   session:
     store-type: jdbc
     jdbc.initialize-schema: always
