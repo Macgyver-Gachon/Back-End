@@ -26,8 +26,10 @@ import java.util.List;
 public class IndexController {
 
     private final HttpSession httpSession;
+
     private final PostsService postsService;
     private final PreferRepository preferRepository;
+    //private final PreferRepository preferRepository;
 
     @GetMapping("/")
     public String index(Model model){
