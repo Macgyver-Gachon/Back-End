@@ -10,11 +10,10 @@ import java.math.BigInteger;
 @AllArgsConstructor
 @Getter
 @Setter
-@Builder
 public class Camp {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "camp_id")
     private Long id;
     private String facltNm; //캠핑장 이름
@@ -34,19 +33,16 @@ public class Camp {
     private float mapY;
     private String tel;
     @Lob
-    private String direction;
     private String homepage;
+    private String direction;
     @Lob
     private String resveUrl;
     private String resveCl;
-    private int gnrlSiteCo;
     private int autoSiteCo;
     private int glampSiteCo;
     private int caravSiteCo;
     private int indvdlCaravSiteCo;
     private int sitedStnc;
-    private String glampInnerFclty;
-    private String caravInnerFclty;
     private String operPdCl;
     private String operDeCl;
     private String trlerAcmpnyAt;
@@ -55,65 +51,69 @@ public class Camp {
     private int swrmCo;
     private int wtrplCo;
     private String brazierCl;
-    private String sbrsCl;
+    //private String sbrsCl;
     private String sbrsEtc;
     private String posblFcltyCl;
-    private String posblFcltyEtc;
     private int fireSensorCo;
-    private int extshrCo;
     private String themaEnvrnCl;
     private String eqpmnLendCl;
     private String animalCmgCl;
     private String tourEraCl;
     private String firstImageUrl;
+    private String glampInnerFclty;
+    private String caravInnerFclty;
 
-    public Camp(Object[] o) {
-        this.id = ((BigInteger) o[0]).longValue();
-        this.addr1 = (String) o[1];
-        this.addr2 = (String) o[2];
-        this.autoSiteCo = (int) o[3];
-        this.insrncAt = (String) o[4];
-        this.brazierCl = (String) o[5];
-        this.caravAcmpnyAt = (String) o[6];
-        this.caravInnerFclty = (String) o[7];
-        this.caravSiteCo = (int) o[8];
-        this.direction = (String) o[9];
-        this.doNm = (String) o[10];
-        this.eqpmnLendCl = (String) o[11];
-        this.extshrCo = (int) o[12];
-        this.facltNm = (String) o[13];
-        this.featureNm = (String) o[14];
-        this.fireSensorCo = (int) o[15];
-        this.firstImageUrl = (String) o[16];
-        this.glampInnerFclty = (String) o[17];
-        this.glampSiteCo = (int) o[18];
-        this.homepage = (String) o[19];
-        this.induty = (String) o[20];
-        this.indvdlCaravSiteCo = (int) o[21];
-        this.intro = (String) o[22];
-        this.lctCl = (String) o[23];
-        this.animalCmgCl = (String) o[24];
-        this.lineIntro = (String) o[25];
-        this.mapX = (float) o[26];
-        this.mapY = (float) o[27];
-        this.operDeCl = (String) o[28];
-        this.operPdCl = (String) o[29];
-        this.posblFcltyCl = (String) o[30];
-        this.posblFcltyEtc = (String) o[31];
-        this.resveCl = (String) o[32];
-        this.resveUrl = (String) o[33];
-        this.glampInnerFclty = (String) o[34];
-        this.sbrsCl = (String) o[35];
-        this.sbrsEtc = (String) o[36];
-        this.sigunguNm = (String) o[37];
-        this.sitedStnc = (int) o[38];
-        this.swrmCo = (int) o[39];
-        this.tel = (String) o[40];
-        this.themaEnvrnCl = (String) o[41];
-        this.toiletCo = (int) o[42];
-        this.tourEraCl = (String) o[43];
-        this.trlerAcmpnyAt = (String) o[44];
-        this.wtrplCo = (int) o[45];
-        this.gnrlSiteCo = (int) o[46];
+    @Builder
+    public Camp(String facltNm,String lineIntro, String intro, String featureNm, String insrncAt, String induty,
+                String lctCl, String doNm, String sigunguNm, String addr1, String addr2,
+                Float mapX,Float mapY, String tel, String homepage, String direction,
+                String resveUrl, String resveCl, Integer autoSiteCo, Integer glampSiteCo,
+                Integer caravSiteCo, Integer indvdlCaravSiteCo, Integer sitedStnc,
+                String operPdCl, String operDeCl, String trlerAcmpnyAt, String caravInnerFclty, String glampInnerFclty,
+                String caravAcmpnyAt, Integer toiletCo, Integer swrmCo, Integer wtrplCo, String brazierCl,
+                String sbrsCl, String sbrsEtc, String posblFcltyCl, Integer fireSensorCo,
+                String themaEnvrnCl, String eqpmnLendCl, String animalCmgCl, String tourEraCl, String firstImageUrl) {
+        this.addr1 = addr1 ;
+        this.addr2 = addr2;
+        this.direction = direction;
+        this.autoSiteCo = autoSiteCo;
+        this.insrncAt = insrncAt ;
+        this.brazierCl = brazierCl ;
+        this.caravAcmpnyAt = caravAcmpnyAt ;
+        this.caravSiteCo = caravSiteCo;
+        this.doNm = doNm;
+        this.eqpmnLendCl = eqpmnLendCl;
+        this.facltNm = facltNm;
+        this.featureNm = featureNm;
+        this.fireSensorCo = fireSensorCo;
+        this.glampInnerFclty = glampInnerFclty;
+        this.caravInnerFclty = caravInnerFclty;
+        this.firstImageUrl = firstImageUrl;
+        this.glampSiteCo = glampSiteCo;
+        this.homepage = homepage;
+        this.induty = induty;
+        this.indvdlCaravSiteCo = indvdlCaravSiteCo;
+        this.intro = intro;
+        this.lctCl = lctCl;
+        this.animalCmgCl = animalCmgCl;
+        this.lineIntro = lineIntro ;
+        this.mapX = mapX;
+        this.mapY = mapY;
+        this.operDeCl = operDeCl;
+        this.operPdCl = operPdCl;
+        this.posblFcltyCl = posblFcltyCl;
+        this.resveCl = resveCl;
+        this.resveUrl = resveUrl;
+        //this.sbrsCl = sbrsCl;
+        this.sbrsEtc = sbrsEtc;
+        this.sigunguNm = sigunguNm;
+        this.sitedStnc = sitedStnc;
+        this.swrmCo = swrmCo;
+        this.tel = tel;
+        this.themaEnvrnCl = themaEnvrnCl;
+        this.toiletCo = toiletCo;
+        this.tourEraCl = tourEraCl;
+        this.trlerAcmpnyAt = trlerAcmpnyAt;
+        this.wtrplCo = wtrplCo;
     }
 }

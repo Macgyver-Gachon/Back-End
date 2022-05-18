@@ -26,7 +26,6 @@ public class CampSaveRequestDto {
     private String homepage;
     private String resveUrl;
     private String resveCl;
-    private int gnrlSiteCo;
     private int autoSiteCo;
     private int glampSiteCo;
     private int caravSiteCo;
@@ -42,12 +41,11 @@ public class CampSaveRequestDto {
     private int swrmCo;
     private int wtrplCo;
     private String brazierCl;
-    private String sbrsCl;
+    //private String sbrsCl;
     private String sbrsEtc;
     private String posblFcltyCl;
     private String posblFcltyEtc;
     private int fireSensorCo;
-    private int extshrCo;
     private String themaEnvrnCl;
     private String eqpmnLendCl;
     private String animalCmgCl;
