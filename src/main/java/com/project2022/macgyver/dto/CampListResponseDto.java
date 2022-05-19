@@ -5,12 +5,14 @@ import lombok.Getter;
 
 @Getter
 public class CampListResponseDto {
+    private long id;
     private String facltNm;
     private String addr1;
     private String addr2;
     private String firstImageUrl;
 
     public CampListResponseDto(Camp camp) {
+        this.id = camp.getId();
         this.facltNm = camp.getFacltNm();
         this.addr1 = camp.getAddr1();
         this.addr2 = camp.getAddr2();
