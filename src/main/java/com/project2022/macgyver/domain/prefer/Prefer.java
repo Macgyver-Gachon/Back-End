@@ -1,6 +1,5 @@
 package com.project2022.macgyver.domain.prefer;
 
-import com.project2022.macgyver.domain.BaseTimeEntity;
 import com.project2022.macgyver.domain.user.User;
 import lombok.Builder;
 import lombok.Getter;
@@ -11,13 +10,13 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Prefer extends BaseTimeEntity {
+public class Prefer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "userid", referencedColumnName = "userid", unique = true)
+    @JoinColumn(name = "userid", referencedColumnName = "id")
     private User user;
 
     /* fk=pk로 받지않고 일반컬럼에 추가해보기
@@ -31,54 +30,54 @@ public class Prefer extends BaseTimeEntity {
     * */
 
     /* 질문1: 나는 뚜벅이다
-    1 -> 차 없음
-    2 -> 차 있음 */
+    0 -> no
+    1 -> yes */
     @Column
-    private String q1Walk;
+    private String q1;
 
     /* 질문2: 나는 캠핑장비를 갖고 있다.
-    1 -> 있음
-    2 -> 없음 */
+    0 -> no
+    1 -> yes */
     @Column
-    private String q2Equipment;
+    private String q2;
 
     /* 질문3: 나는 집 밖이라면 하루쯤 샤워를 건너뛰어도 된다.
-    1 -> 됨
-    2 -> 안 됨 */
+    0 -> no
+    1 -> yes */
     @Column
-    private String q3Shower;
+    private String q3;
 
     /* 질문4: 누구와 함께 하는가.
-    1 -> 친구/연인
-    2 -> 아이동반 가족 */
+    0 -> 친구/연인
+    1 -> 아이동반 가족 */
     @Column
-    private String q4Together;
+    private String q4;
 
     /* 질문5: 캠핑장 인근에 놀거리가 있다면?
-    1 -> 감
-    2 -> 그보단 캠핑에 집중함 */
+    0 -> no
+    1 -> yes */
     @Column
-    private String q5Sightseeing;
+    private String q5;
 
     /* 질문6: 가장 고려하는 대상은?
-    1 -> 동물 동반
-    2 -> 계절에 맞는 명소
-    3 -> 캠핑장 내 이벤트 및 체험 */
+    0 -> 동물 동반
+    1 -> 계절에 맞는 명소
+    2 -> 캠핑장 내 이벤트 및 체험 */
     @Column
-    private String q6Consider;
+    private String q6;
 
     @Builder
-    public Prefer(User user ,String q1Walk, String q2Equipment, String q3Shower, String q4Together, String q5Sightseeing, String q6Consider){
+    public Prefer(User user ,String q1, String q2, String q3, String q4, String q5, String q6){
         this.user=user;
-        this.q1Walk=q1Walk;
-        this.q2Equipment=q2Equipment;
-        this.q3Shower=q3Shower;
-        this.q4Together=q4Together;
-        this.q5Sightseeing=q5Sightseeing;
-        this.q6Consider=q6Consider;
+        this.q1=q1;
+        this.q2=q2;
+        this.q3=q3;
+        this.q4=q4;
+        this.q5=q5;
+        this.q6=q6;
     }
 
-    public void setUser(User userid) {
-        this.user = userid;
+    public void setUser(User id) {
+        this.user = id;
     }
 }

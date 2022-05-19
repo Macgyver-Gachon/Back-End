@@ -9,32 +9,32 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class PreferSaveRequestDto {
 
-    private String q1Walk;
-    private String q2Equipment;
-    private String q3Shower;
-    private String q4Together;
-    private String q5Sightseeing;
-    private String q6Consider;
+    private String q1;
+    private String q2;
+    private String q3;
+    private String q4;
+    private String q5;
+    private String q6;
 
     @Builder
-    public PreferSaveRequestDto(String q1Walk, String q2Equipment, String q3Shower, String q4Together, String q5Sightseeing, String q6Consider){
-        this.q1Walk=q1Walk;
-        this.q2Equipment=q2Equipment;
-        this.q3Shower=q3Shower;
-        this.q4Together=q4Together;
-        this.q5Sightseeing=q5Sightseeing;
-        this.q6Consider=q6Consider;
+    public PreferSaveRequestDto(String q1, String q2, String q3, String q4, String q5, String q6){
+        this.q1=q1;
+        this.q2=q2;
+        this.q3=q3;
+        this.q4=q4;
+        this.q5=q5;
+        this.q6=q6;
     }
 
     public Prefer toEntity(){
         return Prefer.builder()
                 //.user()
-                .q1Walk(q1Walk)
-                .q2Equipment(q2Equipment)
-                .q3Shower(q3Shower)
-                .q4Together(q4Together)
-                .q5Sightseeing(q5Sightseeing)
-                .q6Consider(q6Consider)
+                .q1(q1)
+                .q2(q2)
+                .q3(q3)
+                .q4(q4)
+                .q5(q5)
+                .q6(q6)
                 .build();
     }
 

@@ -18,7 +18,12 @@ public class PreferService {
         Prefer prefer = requestDto.toEntity();
         prefer.setUser(user);
         Prefer preferEntity = preferRepository.save(prefer);
-        preferEntity.setUser(user);
+        preferEntity.setUser(user);     //이부분 .getUserid로 안바꿔도 되는건지?
         return preferEntity.getId();
+    }
+
+    @Transactional
+    public boolean exists(String id){
+        return preferRepository.existsByUser(id);
     }
 }

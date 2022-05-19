@@ -19,6 +19,7 @@ public class PreferApiController {
     @PostMapping("/user/prefer")
     public Long save(@RequestBody PreferSaveRequestDto requestDto) {
         User user = (User)session.getAttribute("user");
+        //다음에 하기 누르면 "camp/recommend"로 바로 리다이렉트 되도록 프론트에서.
         return preferService.saveInfo(requestDto, user);
     }
 }
