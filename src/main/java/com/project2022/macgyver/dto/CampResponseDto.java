@@ -45,10 +45,9 @@ public class CampResponseDto {
     private Integer swrmCo;
     private Integer wtrplCo;
     private String brazierCl;
-    //private String sbrsCl;
+    private String sbrsCl;
     private String sbrsEtc;
     private String posblFcltyCl;
-    private String posblFcltyEtc;
     private Integer fireSensorCo;
     private String themaEnvrnCl;
     private String eqpmnLendCl;
@@ -91,7 +90,7 @@ public class CampResponseDto {
         this.swrmCo = camp.getSwrmCo();
         this.wtrplCo = camp.getWtrplCo();
         this.brazierCl = camp.getBrazierCl();
-        //this.sbrsCl = camp.getSbrsCl();
+        this.sbrsCl = camp.getSbrsCl();
         this.sbrsEtc = camp.getSbrsEtc();
         this.posblFcltyCl = camp.getPosblFcltyCl();
         this.fireSensorCo = camp.getFireSensorCo();
