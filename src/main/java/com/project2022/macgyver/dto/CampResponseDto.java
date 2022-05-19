@@ -11,7 +11,7 @@ import lombok.*;
 @Builder
 @ApiModel(description = "캠핑장 조회 응답 DTO")
 public class CampResponseDto {
-
+    private Long id;
     private String facltNm;
     private String lineIntro;
     private String intro;
@@ -57,6 +57,7 @@ public class CampResponseDto {
 
 
     public CampResponseDto(Camp camp) {
+        this.id = camp.getId();
         this.facltNm = camp.getFacltNm();
         this.insrncAt = camp.getInsrncAt();
         this.lineIntro = camp.getLineIntro();
