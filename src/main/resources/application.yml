@@ -1,6 +1,10 @@
 server:
   port: 8081
 spring:
+  mvc:
+    hiddenmethod:
+      fiter:
+        enabled: true
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://macgyver.ckmsnq0fjpg3.ap-northeast-2.rds.amazonaws.com:3306/macgyver?useSSL=false
