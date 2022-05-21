@@ -1,6 +1,7 @@
 package com.project2022.macgyver.controller;
 
 import com.project2022.macgyver.domain.user.User;
+import com.project2022.macgyver.dto.CampAllListResponseDto;
 import com.project2022.macgyver.dto.CampListResponseDto;
 import com.project2022.macgyver.dto.CampResponseDto;
 import com.project2022.macgyver.service.CampService;
@@ -23,6 +24,7 @@ public class CampApiController {
     private final HttpSession session;
 
     /*캠핑장 추천 페이지*/
+    //리다이렉트 수정 필요.. 안되는거같음
     @GetMapping("/camp")
     public String camp(){
         User user = (User)session.getAttribute("user");
@@ -43,10 +45,16 @@ public class CampApiController {
         return campService.findAllById();
     }
 
-    /* 캠핑장 상세보기 페이지 */
+    /* 캠핑장 상세보기 페이지 - 보류 */
     @GetMapping("/camp/{id}")
     public CampResponseDto campInfo(@PathVariable Long id) {
         return campService.findById(id);
+    }
+
+    /*캠핑장 전체 리스트 보내기 - 상세보기 페이지*/
+    @GetMapping("/camp/list")
+    public List<CampAllListResponseDto> campList() {
+        return campService.findAllAsc();
     }
 
 }

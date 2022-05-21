@@ -16,20 +16,20 @@ public class Bookmark {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userid", referencedColumnName = "id")
     private User user;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "campingid", referencedColumnName = "id")
     private Camp campingID;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "facltnm", referencedColumnName = "facltNm")
-    private Camp facltNm;
+    //없애도 될듯
+    @Column(name = "facltnm")
+    private String facltNm;
 
     @Builder
-    public Bookmark(User user, Camp campingID, Camp facltNm){
+    public Bookmark(User user, Camp campingID, String facltNm){
         this.user=user;
         this.campingID=campingID;
         this.facltNm=facltNm;

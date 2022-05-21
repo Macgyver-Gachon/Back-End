@@ -55,7 +55,6 @@ public class CampResponseDto {
     private String tourEraCl;
     private String firstImageUrl;
 
-
     public CampResponseDto(Camp camp) {
         this.id = camp.getId();
         this.facltNm = camp.getFacltNm();

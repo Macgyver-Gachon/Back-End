@@ -15,6 +15,7 @@ public class PreferService {
 
     @Transactional
     public Long saveInfo(PreferSaveRequestDto requestDto, User user) {
+        //수정 필요할듯
         Prefer prefer = requestDto.toEntity();
         prefer.setUser(user);
         Prefer preferEntity = preferRepository.save(prefer);

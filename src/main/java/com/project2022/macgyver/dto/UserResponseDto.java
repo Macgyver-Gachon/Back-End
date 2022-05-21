@@ -5,6 +5,7 @@ import lombok.Getter;
 
 @Getter
 public class UserResponseDto {
+    private Long id;
     private String userid;
     private String username;
     private String tel;
@@ -13,6 +14,7 @@ public class UserResponseDto {
     private String birthday;
 
     public UserResponseDto(User entity) {
+        this.id=entity.getId();
         this.userid = entity.getUserid();
         this.username = entity.getUsername();
         this.tel = entity.getTel();
