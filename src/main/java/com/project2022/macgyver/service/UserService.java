@@ -22,7 +22,7 @@ public class UserService {
 
     @Transactional(readOnly = true)
     public User findByid(String userid) {
-        return userRepository.findByid(userid);
+        return userRepository.findById(userid);
     }
 
     @Transactional

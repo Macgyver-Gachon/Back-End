@@ -9,7 +9,7 @@ import java.util.Optional;
 
 public interface AdminRepository extends JpaRepository<User, Long> {
 
-    Optional<User> findByUserid(String userid);
+    Optional<User> findById(Long id);
 
     List<User> findByUseridContaining(String keyword);
 

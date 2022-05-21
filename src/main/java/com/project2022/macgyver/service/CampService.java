@@ -51,4 +51,10 @@ public class CampService {
         return campRepository.findBycampId(id);
     }
 
+    /*캠핑장 번호로 찾기 - 리스트버전*/
+    @Transactional(readOnly = true)
+    public CampListResponseDto findBycampMark(Long id) {
+        return campRepository.findBycampMark(id);
+    }
+
 }

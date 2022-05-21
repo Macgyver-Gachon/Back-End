@@ -31,9 +31,9 @@ public class AdminApiController {
     }
 
     /*특정 회원 삭제*/
-    @DeleteMapping("/admin/userList/{userid}")
-    public String delete(@PathVariable String userid) {
-        adminService.delete(userid);
-        return userid;
+    @DeleteMapping("/admin/userList/{id}")
+    public void delete(@PathVariable Long id) {
+        adminService.delete(id);
+        //return id;
     }
 }
