@@ -15,7 +15,6 @@ public class PreferService {
 
     @Transactional
     public Long saveInfo(PreferSaveRequestDto requestDto, User user) {
-        //수정 필요할듯
         Prefer prefer = requestDto.toEntity();
         prefer.setUser(user);
         Prefer preferEntity = preferRepository.save(prefer);
@@ -23,8 +22,10 @@ public class PreferService {
         return preferEntity.getId();
     }
 
+    /*prefer에 특정 사용자 존재하는지 확인*/
     @Transactional
-    public boolean exists(String id){
-        return preferRepository.existsByUser(id);
+    public boolean exists(User user){
+        return preferRepository.existsByUser(user);
     }
+
 }
