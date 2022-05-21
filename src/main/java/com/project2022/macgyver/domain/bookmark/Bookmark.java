@@ -5,10 +5,12 @@ import com.project2022.macgyver.domain.user.User;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Getter
+@Setter
 @NoArgsConstructor
 @Entity
 public class Bookmark {
@@ -22,16 +24,11 @@ public class Bookmark {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "campingid", referencedColumnName = "id")
-    private Camp campingID;
-
-    //없애도 될듯
-    @Column(name = "facltnm")
-    private String facltNm;
+    private Camp camp;
 
     @Builder
-    public Bookmark(User user, Camp campingID, String facltNm){
+    public Bookmark(User user, Camp camp){
         this.user=user;
-        this.campingID=campingID;
-        this.facltNm=facltNm;
+        this.camp=camp;
     }
 }

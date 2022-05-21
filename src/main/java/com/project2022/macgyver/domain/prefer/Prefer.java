@@ -4,10 +4,12 @@ import com.project2022.macgyver.domain.user.User;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Getter
+@Setter
 @NoArgsConstructor
 @Entity
 public class Prefer {
@@ -77,7 +79,5 @@ public class Prefer {
         this.q6=q6;
     }
 
-    public void setUser(User id) {
-        this.user = id;
-    }
+    //public void setUser(User id) {this.user = id;}
 }

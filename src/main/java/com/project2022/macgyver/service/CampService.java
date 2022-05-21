@@ -20,11 +20,11 @@ public class CampService {
 
     /* 캠핑장 상세보기 페이지 */
     @Transactional(readOnly = true)
-    public CampResponseDto findById(Long id) {
+    public CampResponseDto findById(Long id, boolean mark) {
         Camp entity = campRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("해당 캠핑장이 존재하지 않습니다. id: " + id));
 
-        return new CampResponseDto(entity);
+        return new CampResponseDto(entity, mark);
     }
 
     /*캠핑장 추천 리스트*/

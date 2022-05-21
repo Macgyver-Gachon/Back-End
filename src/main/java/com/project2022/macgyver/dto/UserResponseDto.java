@@ -1,5 +1,6 @@
 package com.project2022.macgyver.dto;
 
+import com.project2022.macgyver.domain.user.Role;
 import com.project2022.macgyver.domain.user.User;
 import lombok.Getter;
 
@@ -12,6 +13,7 @@ public class UserResponseDto {
     private String sex;
     private String birthyear;
     private String birthday;
+    private Role role;
 
     public UserResponseDto(User entity) {
         this.id=entity.getId();
@@ -21,5 +23,6 @@ public class UserResponseDto {
         this.sex =entity.getSex();
         this.birthyear=entity.getBirthyear();
         this.birthday=entity.getBirthday();
+        this.role=entity.getRole();
     }
 }
