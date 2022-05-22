@@ -1,16 +1,12 @@
 package com.project2022.macgyver.domain.user;
 
 import com.project2022.macgyver.domain.BaseTimeEntity;
-import com.project2022.macgyver.domain.bookmark.Bookmark;
-import com.project2022.macgyver.domain.prefer.Prefer;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
