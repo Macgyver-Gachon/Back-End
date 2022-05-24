@@ -76,7 +76,7 @@ public class CampApiController {
     /*캠핑장 전체 리스트 보내기 - 상세보기 페이지*/
     @GetMapping("/camp/list")
     public List<CampAllListResponseDto> campList() {
-
+        System.out.println("캠핑장 전체 리스트 출력");
         return campService.findAllAsc();
     }
 }

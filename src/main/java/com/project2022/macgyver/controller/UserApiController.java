@@ -46,7 +46,6 @@ public class UserApiController {
     //@GetMapping("user/mypage/post")
 
     /*나의 북마크 조회*/
-
     @GetMapping("user/mypage/bookmark")
     public List<CampListResponseDto> myBookmark(){
         SessionUser sessionUser = (SessionUser) httpSession.getAttribute("user");

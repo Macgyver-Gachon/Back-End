@@ -1,12 +1,14 @@
 package com.project2022.macgyver.config.auth;
 
 import com.project2022.macgyver.domain.user.Role;
+import com.project2022.macgyver.service.TokenService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -16,12 +18,13 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private final CustomOAuth2UserService customOAuth2UserService;
+    private final OAuth2SuccessHandler oAuth2SuccessHandler;
+    private final TokenService tokenService;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception{
         http
                 .csrf().disable()
-                //추가
                 .cors().configurationSource(corsConfigurationSource())
                 //.headers().frameOptions().disable()
                 .and()
@@ -34,9 +37,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .logout()
                         .logoutSuccessUrl("/")//로그아웃 성공 시 이동 경로
                 .and()
+                    .addFilterBefore(new JwtAuthFilter(tokenService), UsernamePasswordAuthenticationFilter.class) //추가
                     .oauth2Login()
-                        .userInfoEndpoint()
-                            .userService(customOAuth2UserService);
+                    .successHandler(oAuth2SuccessHandler) //추가
+                    .userInfoEndpoint()
+                    .userService(customOAuth2UserService);
 
     }
 
