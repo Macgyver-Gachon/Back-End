@@ -110,7 +110,7 @@ public class UserService {
                 .withClaim("nickname", user.getNickname())
 
                 .sign(Algorithm.HMAC512(JwtProperties.SECRET));
-
+        System.out.printf("jwtToken은 %c이다.",jwtToken);
         return jwtToken;
     }
 

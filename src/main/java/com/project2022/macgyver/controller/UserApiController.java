@@ -12,13 +12,12 @@ import com.project2022.macgyver.domain.auth.OauthToken;
 
 import javax.servlet.http.HttpServletRequest;
 
-@RequiredArgsConstructor
 @RestController
 @RequestMapping("/api")
 public class UserApiController {
 
     @Autowired
-    private final UserService userService;
+    private  UserService userService;
 
     @GetMapping("/oauth/token")
     public ResponseEntity getLogin(@RequestParam("code") String code) {
@@ -26,6 +25,7 @@ public class UserApiController {
         OauthToken oauthToken = userService.getAccessToken(code);
 
         String jwtToken = userService.SaveUserAndGetToken(oauthToken.getAccess_token());
+        System.out.printf("jwtToken은 컨트롤러 %c이다.",jwtToken);
 
         HttpHeaders headers = new HttpHeaders();
         headers.add(JwtProperties.HEADER_STRING, JwtProperties.TOKEN_PREFIX + jwtToken);
