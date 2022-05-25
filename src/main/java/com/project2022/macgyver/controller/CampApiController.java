@@ -1,6 +1,5 @@
 package com.project2022.macgyver.controller;
 
-import com.project2022.macgyver.config.auth.dto.SessionUser;
 import com.project2022.macgyver.domain.bookmark.Bookmark;
 import com.project2022.macgyver.domain.camp.Camp;
 import com.project2022.macgyver.domain.user.User;
@@ -32,7 +31,9 @@ public class CampApiController {
     private final BookmarkService bookmarkService;
     private final HttpSession session;
 
-    /*캠핑장 추천 페이지 - 최초접근*/
+
+    /*
+    //캠핑장 추천 페이지 - 최초접근
     @GetMapping("/camp")
     public String camp(){
         SessionUser sessionUser = (SessionUser)session.getAttribute("user");
@@ -43,7 +44,7 @@ public class CampApiController {
         else return "redirect:/user/prefer";
     }
 
-    /*캠핑장 추천 페이지*/
+    //캠핑장 추천 페이지
     @GetMapping("/camp/recommend")
     public List<CampListResponseDto> campRecommend(){
         //수정필요
@@ -56,7 +57,7 @@ public class CampApiController {
         return campService.findAllById();
     }
 
-    /* 캠핑장 상세보기 페이지 - 단건 */
+    // 캠핑장 상세보기 페이지 - 단건
     @GetMapping("/camp/{id}")
     public CampResponseDto campInfo(@PathVariable Long id) {
         boolean mark = false;
@@ -72,6 +73,7 @@ public class CampApiController {
         }
         return campService.findById(id, mark);
     }
+    */
 
     /*캠핑장 전체 리스트 보내기 - 상세보기 페이지*/
     @GetMapping("/camp/list")

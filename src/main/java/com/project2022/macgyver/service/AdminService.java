@@ -25,7 +25,7 @@ public class AdminService {
     /* 특정 회원 id 검색 */
     @Transactional
     public List<UserListResponseDto> search(String keyword) {
-        return adminRepository.findByUseridContaining(keyword).stream()
+        return adminRepository.findByEmailContaining(keyword).stream()
                 .map(UserListResponseDto::new).collect(Collectors.toList());
     }
 

@@ -1,34 +1,48 @@
 package com.project2022.macgyver.config.auth;
 
-import com.project2022.macgyver.domain.user.Role;
+import com.project2022.macgyver.config.jwt.CustomAuthenticationEntryPoint;
+import com.project2022.macgyver.config.jwt.JwtRequestFilter;
+import com.project2022.macgyver.domain.user.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.filter.CorsFilter;
 
 @RequiredArgsConstructor
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    private final CustomOAuth2UserService customOAuth2UserService;
+
+    @Autowired
+    UserRepository userRepository;
+    public static final String FRONT_URL = "http://localhost:3000";
+
+    private final CorsFilter corsFilter;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception{
-        http
-                .csrf().disable()
-                .headers().frameOptions().disable()
+        http.csrf().disable()
+                .sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+
                 .and()
-                    .authorizeRequests()
-                    .antMatchers("/**", "css/**", "/images/**", "/js/**", "/all/**", "/camp/**", "/api/**").permitAll() //개발에 따라 접근 주소 수정 필요, permitAll 모두 접근 가능
+                    .httpBasic().disable()
+                    .formLogin().disable()
+                    .addFilter(corsFilter);
+        http.authorizeRequests()
+                    .antMatchers(FRONT_URL+"/Macgyver/**") //개발에 따라 접근 주소 수정 필요, permitAll 모두 접근 가능
                     //.antMatchers("/api/v1/**", "/useronly/**").hasRole(Role.USER.name()) //user등급 접근 가능 수정필요
                     //.antMatchers("/admin/**").hasRole(Role.ADMIN.name()) //admin등급 접근 가능 수정필요
-                    //.anyRequest().authenticated() //설정된 값 이외의 url들 로그인한 사용자만 가능
-                .and()
-                    .logout()
-                        .logoutSuccessUrl("/")//로그아웃 성공 시 이동 경로
-                .and()
-                    .oauth2Login()
-                        .userInfoEndpoint()
-                            .userService(customOAuth2UserService);
+                .authenticated()
+                .anyRequest().permitAll() //설정된 값 이외의 url들 로그인한 사용자만 가능
 
+                .and()
+                .exceptionHandling()
+                .authenticationEntryPoint(new CustomAuthenticationEntryPoint());
+
+        http.addFilterBefore(new JwtRequestFilter(), UsernamePasswordAuthenticationFilter.class);
     }
 }

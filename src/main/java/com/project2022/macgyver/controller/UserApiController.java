@@ -1,13 +1,16 @@
 package com.project2022.macgyver.controller;
 
-import com.project2022.macgyver.config.auth.dto.SessionUser;
-import com.project2022.macgyver.dto.UserResponseDto;
+import com.project2022.macgyver.config.jwt.JwtProperties;
+import com.project2022.macgyver.domain.user.User;
 import com.project2022.macgyver.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import com.project2022.macgyver.domain.auth.OauthToken;
 
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpServletRequest;
 
 @RequiredArgsConstructor
 @RestController
@@ -18,22 +21,31 @@ public class UserApiController {
     private final UserService userService;
 
     @GetMapping("/oauth/token")
-    public OauthToken getLogin(@RequestParam("code") String code) {
+    public ResponseEntity getLogin(@RequestParam("code") String code) {
 
         OauthToken oauthToken = userService.getAccessToken(code);
 
-        return oauthToken;
+        String jwtToken = userService.SaveUserAndGetToken(oauthToken.getAccess_token());
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.add(JwtProperties.HEADER_STRING, JwtProperties.TOKEN_PREFIX + jwtToken);
+
+        //(4)
+        return ResponseEntity.ok().headers(headers).body("success");
+    }
+
+    //내 정보 보기
+    @GetMapping("/user/mypage")
+    public ResponseEntity<Object> getCurrentUser(HttpServletRequest request){
+        User user = userService.getUser(request);
+
+        return ResponseEntity.ok().body(user);
     }
 
 }
 
 /*
-    //내 정보 보기
-    @GetMapping("/user/mypage")
-    public UserResponseDto findUserInfo(String userid){
-        SessionUser user = (SessionUser) httpSession.getAttribute("user");
-        return userService.findByUserid(user.getUserid());
-    }
+
 
     //회원탈퇴
     @DeleteMapping("/user/mypage")
@@ -49,6 +61,3 @@ public class UserApiController {
         return userid;
     }
     */
-    /*
-
-}

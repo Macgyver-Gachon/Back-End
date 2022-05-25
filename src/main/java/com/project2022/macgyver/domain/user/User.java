@@ -32,7 +32,7 @@ public class User extends BaseTimeEntity {
     private String gender;
 
     @Column
-    private String birthday;       //생일 birthday MM-dd
+    private String birthday;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)

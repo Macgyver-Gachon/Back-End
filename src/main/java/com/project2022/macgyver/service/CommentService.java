@@ -23,7 +23,8 @@ public class CommentService {
     private final UserRepository userRepository;
     private final PostsRepository postsRepository;
 
-    /* CREATE */
+    /*
+    // CREATE
     @Transactional
     public Long save(Long id, String username, CommentDto.Request dto) {
         User user = userRepository.findByUsername(username);
@@ -39,7 +40,7 @@ public class CommentService {
         return comment.getId();
     }
 
-    /* READ */
+    // READ
     @Transactional(readOnly = true)
     public List<CommentDto.Response> findAll(Long id) {
         Posts posts = postsRepository.findById(id).orElseThrow(() ->
@@ -48,7 +49,7 @@ public class CommentService {
         return comments.stream().map(CommentDto.Response::new).collect(Collectors.toList());
     }
 
-    /* UPDATE */
+    // UPDATE
     @Transactional
     public void update(Long id, CommentDto.Request dto) {
         Comment comment = commentRepository.findById(id).orElseThrow(() ->
@@ -57,7 +58,7 @@ public class CommentService {
         comment.update(dto.getComment());
     }
 
-    /* DELETE */
+    // DELETE
     @Transactional
     public void delete(Long id) {
         Comment comment = commentRepository.findById(id).orElseThrow(() ->
@@ -65,4 +66,5 @@ public class CommentService {
 
         commentRepository.delete(comment);
     }
+     */
 }

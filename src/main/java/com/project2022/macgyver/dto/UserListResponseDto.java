@@ -8,12 +8,12 @@ import java.time.LocalDateTime;
 @Getter
 public class UserListResponseDto {
     private Long id;
-    private String userid;
+    private String email;
     private LocalDateTime created_date;
 
     public UserListResponseDto(User entity) {
         this.id = entity.getId();
-        this.userid = entity.getUserid();
+        this.email = entity.getEmail();
         this.created_date = entity.getCreatedDate();
     }
 }

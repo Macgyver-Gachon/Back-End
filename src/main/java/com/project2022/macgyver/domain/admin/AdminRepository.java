@@ -11,7 +11,7 @@ public interface AdminRepository extends JpaRepository<User, Long> {
 
     Optional<User> findById(Long id);
 
-    List<User> findByUseridContaining(String keyword);
+    List<User> findByEmailContaining(String keyword);
 
     @Query("SELECT p FROM User p ORDER BY p.id DESC")
     List<User> findAllDesc();

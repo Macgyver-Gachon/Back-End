@@ -1,6 +1,5 @@
 package com.project2022.macgyver.controller;
 
-import com.project2022.macgyver.config.auth.dto.SessionUser;
 import com.project2022.macgyver.domain.bookmark.Bookmark;
 import com.project2022.macgyver.domain.camp.Camp;
 import com.project2022.macgyver.domain.user.User;
@@ -23,7 +22,7 @@ public class BookmarkApiController {
     private final CampService campService;
     private final BookmarkService bookmarkService;
     private final HttpSession httpSession;
-
+/*
     //campid가 넘어옴
     @PostMapping("/bookmark/{id}")
     public String addBookmark(@PathVariable(value="id") Long id){
@@ -50,5 +49,5 @@ public class BookmarkApiController {
 
         //return "result";
     }
-
+*/
 }
