@@ -19,20 +19,17 @@ public class User extends BaseTimeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY) //auto increase
     private Long id;
 
-    @Column(unique=true)        //방금추가함
-    private String userid;     //email이 아이디
+    @Column
+    private Long kakaoid;
 
     @Column
-    private String username;   //사용자 이름 name
+    private String nickname ;
 
     @Column
-    private String tel;     //휴대폰 전화번호 mobile
+    private String email;
 
     @Column
-    private String sex;     //성별 정보 gender
-
-    @Column
-    private String birthyear;       //출생연도 birthyear
+    private String gender;
 
     @Column
     private String birthday;       //생일 birthday MM-dd
@@ -42,25 +39,13 @@ public class User extends BaseTimeEntity {
     private Role role;
 
     @Builder
-    public User(String userid, String username, String tel, String sex, String birthyear, String birthday, Role role){
-        this.userid=userid;
-        this.username=username;
-        this.tel=tel;
-        this.sex=sex;
-        this.birthyear=birthyear;
+    public User(Long kakaoid, String nickname, String email, String gender, String birthday, Role role){
+        this.kakaoid = kakaoid;
+        this.nickname = nickname;
+        this.email = email;
+        this.gender=gender;
         this.birthday=birthday;
         this.role=role;
-    }
-
-    public User update(String username, String tel){
-        this.username=username;
-        this.tel=tel;
-
-        return this;
-    }
-
-    public String getRoleKey(){
-        return this.role.getKey();
     }
 
 }

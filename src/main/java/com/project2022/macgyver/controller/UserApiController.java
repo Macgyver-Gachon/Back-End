@@ -4,19 +4,30 @@ import com.project2022.macgyver.config.auth.dto.SessionUser;
 import com.project2022.macgyver.dto.UserResponseDto;
 import com.project2022.macgyver.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 
 @RequiredArgsConstructor
 @RestController
+@RequestMapping("/api")
 public class UserApiController {
 
+    @Autowired
     private final UserService userService;
-    private final HttpSession httpSession;
 
+    @GetMapping("/oauth/token")
+    public OauthToken getLogin(@RequestParam("code") String code) {
+
+        OauthToken oauthToken = userService.getAccessToken(code);
+
+        return oauthToken;
+    }
+
+}
+
+/*
     //내 정보 보기
     @GetMapping("/user/mypage")
     public UserResponseDto findUserInfo(String userid){
@@ -38,5 +49,6 @@ public class UserApiController {
         return userid;
     }
     */
+    /*
 
 }

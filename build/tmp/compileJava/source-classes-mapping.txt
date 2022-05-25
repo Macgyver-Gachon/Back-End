@@ -3,6 +3,10 @@ com/project2022/macgyver/config/auth/LoginUser.java
 com/project2022/macgyver/domain/prefer/Prefer.java
  com.project2022.macgyver.domain.prefer.Prefer
  com.project2022.macgyver.domain.prefer.Prefer$PreferBuilder
+com/project2022/macgyver/domain/history/History.java
+ com.project2022.macgyver.domain.history.History
+com/project2022/macgyver/dto/CampListResponseDto.java
+ com.project2022.macgyver.dto.CampListResponseDto
 com/project2022/macgyver/config/auth/dto/SessionUser.java
  com.project2022.macgyver.config.auth.dto.SessionUser
 com/project2022/macgyver/domain/camp/Camp.java
@@ -40,12 +44,9 @@ com/project2022/macgyver/dto/CommentDto.java
  com.project2022.macgyver.dto.CommentDto$Request
  com.project2022.macgyver.dto.CommentDto$Request$RequestBuilder
  com.project2022.macgyver.dto.CommentDto$Response
-com/project2022/macgyver/dto/CampListSaveRequestDto.java
- com.project2022.macgyver.dto.CampListSaveRequestDto
- com.project2022.macgyver.dto.CampListSaveRequestDto$CampListSaveRequestDtoBuilder
-com/project2022/macgyver/dto/CampSaveRequestDto.java
- com.project2022.macgyver.dto.CampSaveRequestDto
- com.project2022.macgyver.dto.CampSaveRequestDto$CampSaveRequestDtoBuilder
+com/project2022/macgyver/domain/bookmark/Bookmark.java
+ com.project2022.macgyver.domain.bookmark.Bookmark
+ com.project2022.macgyver.domain.bookmark.Bookmark$BookmarkBuilder
 com/project2022/macgyver/dto/UserResponseDto.java
  com.project2022.macgyver.dto.UserResponseDto
 com/project2022/macgyver/controller/UserApiController.java
@@ -68,6 +69,8 @@ com/project2022/macgyver/service/CommentService.java
  com.project2022.macgyver.service.CommentService
 com/project2022/macgyver/domain/posts/PostsRepository.java
  com.project2022.macgyver.domain.posts.PostsRepository
+com/project2022/macgyver/controller/CampApiController.java
+ com.project2022.macgyver.controller.CampApiController
 com/project2022/macgyver/domain/user/User.java
  com.project2022.macgyver.domain.user.User
  com.project2022.macgyver.domain.user.User$UserBuilder
@@ -76,6 +79,8 @@ com/project2022/macgyver/controller/CommentApiController.java
 com/project2022/macgyver/config/auth/dto/OAuthAttributes.java
  com.project2022.macgyver.config.auth.dto.OAuthAttributes
  com.project2022.macgyver.config.auth.dto.OAuthAttributes$OAuthAttributesBuilder
+com/project2022/macgyver/service/CampService.java
+ com.project2022.macgyver.service.CampService
 com/project2022/macgyver/domain/camp/CampRepository.java
  com.project2022.macgyver.domain.camp.CampRepository
 com/project2022/macgyver/dto/PreferSaveRequestDto.java

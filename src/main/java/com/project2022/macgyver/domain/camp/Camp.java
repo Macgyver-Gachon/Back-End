@@ -110,7 +110,6 @@ public class Camp {
                 String themaEnvrnCl, String eqpmnLendCl, String animalCmgCl, String tourEraCl, String firstImageUrl) {
         this.addr1 = addr1 ;
         this.addr2 = addr2;
-        this.sbrsCl = sbrsCl;
         this.direction = direction;
         this.autoSiteCo = autoSiteCo;
         this.insrncAt = insrncAt ;
@@ -140,7 +139,7 @@ public class Camp {
         this.posblFcltyCl = posblFcltyCl;
         this.resveCl = resveCl;
         this.resveUrl = resveUrl;
-        //this.sbrsCl = sbrsCl;
+        this.sbrsCl = sbrsCl;
         this.sbrsEtc = sbrsEtc;
         this.sigunguNm = sigunguNm;
         this.sitedStnc = sitedStnc;
