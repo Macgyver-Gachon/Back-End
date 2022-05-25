@@ -33,7 +33,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .formLogin().disable()
                     .addFilter(corsFilter);
         http.authorizeRequests()
-                    .antMatchers(FRONT_URL+"/Macgyver/**") //개발에 따라 접근 주소 수정 필요, permitAll 모두 접근 가능
+                    .antMatchers(FRONT_URL+"/Macgyver/**", "/camp/list") //개발에 따라 접근 주소 수정 필요, permitAll 모두 접근 가능
                     //.antMatchers("/api/v1/**", "/useronly/**").hasRole(Role.USER.name()) //user등급 접근 가능 수정필요
                     //.antMatchers("/admin/**").hasRole(Role.ADMIN.name()) //admin등급 접근 가능 수정필요
                 .authenticated()
