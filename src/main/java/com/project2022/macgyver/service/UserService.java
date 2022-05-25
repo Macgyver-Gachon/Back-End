@@ -28,11 +28,10 @@ import java.util.*;
 import static com.project2022.macgyver.config.auth.SecurityConfig.FRONT_URL;
 
 
-@RequiredArgsConstructor
 @Service
 public class UserService {
     @Autowired
-    private final UserRepository userRepository;
+    UserRepository userRepository;
 
     /*
     //환경 변수 가져오기
