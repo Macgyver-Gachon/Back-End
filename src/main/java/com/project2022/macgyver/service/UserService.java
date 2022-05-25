@@ -79,6 +79,11 @@ public class UserService {
         return new UserResponseDto(entity);
     }
 
+    @Transactional(readOnly = true)
+    public User findByid(String userid) {
+        return userRepository.findById(userid);
+    }
+
     @Transactional
     public void delete(String userid) {
         User user = userRepository.findByUserid(userid)

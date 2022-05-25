@@ -5,10 +5,12 @@ import com.project2022.macgyver.domain.user.User;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Getter
+@Setter
 @NoArgsConstructor
 @Entity
 public class Bookmark {
@@ -16,22 +18,17 @@ public class Bookmark {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     @JoinColumn(name = "userid", referencedColumnName = "id")
     private User user;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "campingid", referencedColumnName = "id")
-    private Camp campingID;
-
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "facltnm", referencedColumnName = "facltNm")
-    private Camp facltNm;
+    private Camp camp;
 
     @Builder
-    public Bookmark(User user, Camp campingID, Camp facltNm){
+    public Bookmark(User user, Camp camp){
         this.user=user;
-        this.campingID=campingID;
-        this.facltNm=facltNm;
+        this.camp=camp;
     }
 }

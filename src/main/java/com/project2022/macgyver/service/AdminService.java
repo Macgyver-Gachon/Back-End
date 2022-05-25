@@ -31,10 +31,9 @@ public class AdminService {
 
     /*특정 회원 삭제*/
     @Transactional
-    public void delete(String userid) {
-        User user = adminRepository.findByUserid(userid)
-                .orElseThrow(() -> new IllegalArgumentException("해당 사용자가 없습니다. id=" + userid));
-
+    public void delete(Long id) {
+        User user = adminRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("해당 사용자가 없습니다. id=" + id));
         adminRepository.delete(user);
     }
 
