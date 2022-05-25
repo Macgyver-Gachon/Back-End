@@ -3,7 +3,6 @@ package com.project2022.macgyver.controller;
 import com.project2022.macgyver.config.jwt.JwtProperties;
 import com.project2022.macgyver.domain.user.User;
 import com.project2022.macgyver.service.UserService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +24,7 @@ public class UserApiController {
         OauthToken oauthToken = userService.getAccessToken(code);
 
         String jwtToken = userService.SaveUserAndGetToken(oauthToken.getAccess_token());
-        System.out.printf("jwtToken은 컨트롤러 %c이다.",jwtToken);
+        System.out.printf("jwtToken은 컨트롤러 %s이다.",jwtToken);
 
         HttpHeaders headers = new HttpHeaders();
         headers.add(JwtProperties.HEADER_STRING, JwtProperties.TOKEN_PREFIX + jwtToken);
