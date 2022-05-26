@@ -52,7 +52,7 @@ public class UserService {
         MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
         params.add("grant_type", "authorization_code");
         params.add("client_id", "a31288d41e5fc2bfcf3d40ec4cf3b196");
-        params.add("redirect_uri", FRONT_URL + "/Macgyver/login");
+        params.add("redirect_uri", FRONT_URL + "/oauth");
         params.add("code", code);
         params.add("client_secret", "GZMFXVPzW1t5LESAkJUmoazVe3bNhBB4");
 
@@ -110,7 +110,6 @@ public class UserService {
                 .withClaim("nickname", user.getNickname())
 
                 .sign(Algorithm.HMAC512(JwtProperties.SECRET));
-        System.out.printf("jwtToken은 %s이다.",jwtToken);
         return jwtToken;
     }
 
