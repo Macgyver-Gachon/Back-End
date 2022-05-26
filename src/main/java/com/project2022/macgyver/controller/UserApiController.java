@@ -3,6 +3,7 @@ package com.project2022.macgyver.controller;
 import com.project2022.macgyver.config.jwt.JwtProperties;
 import com.project2022.macgyver.domain.user.User;
 import com.project2022.macgyver.service.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
@@ -11,12 +12,13 @@ import com.project2022.macgyver.domain.auth.OauthToken;
 
 import javax.servlet.http.HttpServletRequest;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/api")
 public class UserApiController {
 
     @Autowired
-    private  UserService userService;
+    private final UserService userService;
 
     @GetMapping("/oauth/token")
     public ResponseEntity getLogin(@RequestParam("code") String code) {
