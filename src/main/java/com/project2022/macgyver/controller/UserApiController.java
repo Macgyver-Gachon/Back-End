@@ -20,7 +20,7 @@ public class UserApiController {
     @Autowired
     private final UserService userService;
 
-    @GetMapping("/oauth/token")
+    @PostMapping(value = "/oauth/token", produces = "application/json; charset=UTF8")
     public ResponseEntity getLogin(@RequestParam("code") String code) {
 
         OauthToken oauthToken = userService.getAccessToken(code);
@@ -38,7 +38,6 @@ public class UserApiController {
     @GetMapping("/user/mypage")
     public ResponseEntity<Object> getCurrentUser(HttpServletRequest request){
         User user = userService.getUser(request);
-
         return ResponseEntity.ok().body(user);
     }
 
@@ -46,18 +45,11 @@ public class UserApiController {
 
 /*
 
-
     //회원탈퇴
     @DeleteMapping("/user/mypage")
-    public void delete(String userid) {
-        SessionUser user = (SessionUser) httpSession.getAttribute("user");
-        userService.delete(user.getUserid());
+    public void delete(HttpServletRequest request) {
+        User user = userService.getUser(request);
+        userService.delete(user.getId());
     }
 
-    /*
-    @DeleteMapping("/user/mypage/{userid}")
-    public String delete(@PathVariable String userid) {
-        userService.delete(userid);
-        return userid;
-    }
     */

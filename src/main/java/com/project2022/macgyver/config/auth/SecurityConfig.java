@@ -34,11 +34,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .formLogin().disable()
                     .addFilter(corsFilter);
         http.authorizeRequests()
-                    .antMatchers(FRONT_URL+"/Macgyver/**") //개발에 따라 접근 주소 수정 필요, permitAll 모두 접근 가능
-                    //.antMatchers("/api/v1/**", "/useronly/**").hasRole(Role.USER.name()) //user등급 접근 가능 수정필요
-                    //.antMatchers("/admin/**").hasRole(Role.ADMIN.name()) //admin등급 접근 가능 수정필요
-                .authenticated()
-                .anyRequest().permitAll() //설정된 값 이외의 url들 로그인한 사용자만 가능
+                    .antMatchers(FRONT_URL+"/Macgyver/**") //로그인 사용자만 접근 가능 주소
+                    .authenticated()
+                    .anyRequest().permitAll() //설정된 값 이외의 url 모두 로그인 없이 접근 가능
 
                 .and()
                 .exceptionHandling()
@@ -46,4 +44,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.addFilterBefore(new JwtRequestFilter(), UsernamePasswordAuthenticationFilter.class);
     }
+    //따로 빼둠
+    //.antMatchers("/api/v1/**", "/useronly/**").hasRole(Role.USER.name()) //user등급 접근 가능 수정필요
+    //.antMatchers("/admin/**").hasRole(Role.ADMIN.name()) //admin등급 접근 가능 수정필요
 }

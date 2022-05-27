@@ -12,8 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpSession;
-
+//@RequestMapping("/api") 추가필요
 @RequiredArgsConstructor
 @RestController
 public class BookmarkApiController {
@@ -21,14 +20,12 @@ public class BookmarkApiController {
     private final UserService userService;
     private final CampService campService;
     private final BookmarkService bookmarkService;
-    private final HttpSession httpSession;
 /*
     //campid가 넘어옴
     @PostMapping("/bookmark/{id}")
-    public String addBookmark(@PathVariable(value="id") Long id){
+    public String addBookmark(@PathVariable(value="id") Long id, HttpServletRequest request){
         String result;
-        SessionUser sessionUser = (SessionUser) httpSession.getAttribute("user");
-        User user = userService.findByid(sessionUser.getUserid());
+        User user = userService.getUser(request);
         Camp camp = campService.findBycampId(id);
 
         Bookmark bookmark = bookmarkService.findByUserAndCamp(user, camp);
@@ -42,12 +39,11 @@ public class BookmarkApiController {
     }
 
     @DeleteMapping("/bookmark/{id}")
-    public void deleteBookmark(@PathVariable(value="id") Long id){
-        SessionUser sessionUser = (SessionUser) httpSession.getAttribute("user");
-        User user = userService.findByid(sessionUser.getUserid());
+    public void deleteBookmark(@PathVariable(value="id") Long id, HttpServletRequest request){
+        User user = userService.getUser(request);
         bookmarkService.deleteByUserAndCamp(user.getId(), id);
 
-        //return "result";
+        System.out.println("캠핑장 id : " + id + " 북마크 해제");
     }
 */
 }
