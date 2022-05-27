@@ -20,7 +20,7 @@ public class UserApiController {
     @Autowired
     private final UserService userService;
 
-    @PostMapping(value = "/oauth/token", produces = "application/json; charset=UTF8")
+    @GetMapping("/oauth/token")
     public ResponseEntity getLogin(@RequestParam("code") String code) {
 
         OauthToken oauthToken = userService.getAccessToken(code);
