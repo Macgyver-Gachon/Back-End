@@ -29,6 +29,7 @@ public class UserApiController {
 
         HttpHeaders headers = new HttpHeaders();
         headers.add(JwtProperties.HEADER_STRING, JwtProperties.TOKEN_PREFIX + jwtToken);
+        headers.add("Content-Type", "application/json;charset=UTF-8");
 
         //(4)
         return ResponseEntity.ok().headers(headers).body("success");
