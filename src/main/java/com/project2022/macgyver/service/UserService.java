@@ -52,7 +52,7 @@ public class UserService {
         MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
         params.add("grant_type", "authorization_code");
         params.add("client_id", "a31288d41e5fc2bfcf3d40ec4cf3b196");
-        params.add("redirect_uri", FRONT_URL + "/oauth/callback/kakao");
+        params.add("redirect_uri", FRONT_URL + "/login");
         params.add("code", code);
         params.add("client_secret", "GZMFXVPzW1t5LESAkJUmoazVe3bNhBB4");
 
