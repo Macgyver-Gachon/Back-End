@@ -10,7 +10,7 @@ import javax.persistence.*;
 
 @Getter
 @Setter
-@NoArgsConstructor
+//@NoArgsConstructor
 @Entity
 public class Prefer {
     @Id
@@ -61,7 +61,7 @@ public class Prefer {
     public Prefer(){
 
     }
-    
+
     @Builder
     public Prefer(User user, String q1, String q2, String q3, String q4, String q5, String q6){
         this.user=user;
