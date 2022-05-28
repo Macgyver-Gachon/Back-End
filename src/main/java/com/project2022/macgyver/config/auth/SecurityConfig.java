@@ -34,8 +34,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .formLogin().disable()
                     .addFilter(corsFilter);
         http.authorizeRequests()
-                    .antMatchers(FRONT_URL+"/Macgyver/**") //로그인 사용자만 접근 가능 주소
-                    .authenticated()
+                    //.antMatchers(FRONT_URL+"/Macgyver/**") //로그인 사용자만 접근 가능 주소
+                    //.authenticated()
                     .anyRequest().permitAll() //설정된 값 이외의 url 모두 로그인 없이 접근 가능
 
                 .and()
