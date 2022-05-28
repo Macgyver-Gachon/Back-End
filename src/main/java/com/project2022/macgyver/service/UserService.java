@@ -150,12 +150,12 @@ public class UserService {
 
         System.out.println("================= requsest의 id(userCode) 보기 =====================");
 
-        Long id = (Long) request.getAttribute("userCode");
+        Long kakaoid = (Long) request.getAttribute("userCode");
 
-        System.out.println(id);
+        System.out.println(kakaoid);
 
-        User user = userRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("해당 사용자가 없습니다. id=" + id));
+        User user = userRepository.findByKakaoid(kakaoid)
+                .orElseThrow(() -> new IllegalArgumentException("해당 사용자가 없습니다. id=" + kakaoid));
 
         return user;
     }
