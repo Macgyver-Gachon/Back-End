@@ -16,6 +16,7 @@ public class CorsConfig {
         config.setAllowCredentials(true);
         config.addAllowedOriginPattern("*");
         config.addAllowedHeader("*"); //반드시 설정 - 수정2
+        config.addAllowedHeader("Authorization");
         config.addExposedHeader("Authorization"); //반드시 설정 - 명시해야된다고 함.
         config.addExposedHeader("*");
         config.addAllowedMethod("*");
