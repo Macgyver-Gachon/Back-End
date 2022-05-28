@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import com.project2022.macgyver.domain.auth.OauthToken;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @RequiredArgsConstructor
 @RestController
@@ -29,9 +30,8 @@ public class UserApiController {
 
         HttpHeaders headers = new HttpHeaders();
         headers.add(JwtProperties.HEADER_STRING, JwtProperties.TOKEN_PREFIX + jwtToken);
-        headers.add("Content-Type", "application/json;charset=UTF-8");
+        headers.set("Content-Type", "application/json");
 
-        //(4)
         return ResponseEntity.ok().headers(headers).body("success");
     }
 
