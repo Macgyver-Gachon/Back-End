@@ -1,7 +1,11 @@
 package com.project2022.macgyver.controller;
 
 import com.project2022.macgyver.config.jwt.JwtProperties;
+import com.project2022.macgyver.domain.bookmark.Bookmark;
 import com.project2022.macgyver.domain.user.User;
+import com.project2022.macgyver.dto.CampListResponseDto;
+import com.project2022.macgyver.service.BookmarkService;
+import com.project2022.macgyver.service.CampService;
 import com.project2022.macgyver.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +16,8 @@ import com.project2022.macgyver.domain.auth.OauthToken;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
@@ -20,6 +26,8 @@ public class UserApiController {
 
     @Autowired
     private final UserService userService;
+    private final BookmarkService bookmarkService;
+    private final CampService campService;
 
     @GetMapping("/oauth/token")
     public ResponseEntity getLogin(@RequestParam("code") String code) {
@@ -49,6 +57,19 @@ public class UserApiController {
         System.out.println(user);
 
         return ResponseEntity.ok().body(user);
+    }
+
+    /*나의 북마크 조회*/
+    @GetMapping("/user/bookmark")
+    public List<CampListResponseDto> myBookmark(HttpServletRequest request){
+        User user = userService.getUser(request);
+
+        List<Bookmark> bookmarkList = bookmarkService.findmyBookmark(user.getId());
+        List<CampListResponseDto> campList = new ArrayList<>();
+        for(Bookmark b : bookmarkList){
+            campList.add(campService.findBycampMark(b.getCamp().getId()));
+        }
+        return campList;
     }
 
     //회원탈퇴
