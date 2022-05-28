@@ -7,12 +7,11 @@ import com.project2022.macgyver.service.BookmarkService;
 import com.project2022.macgyver.service.CampService;
 import com.project2022.macgyver.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-//@RequestMapping("/api") 추가필요
+import javax.servlet.http.HttpServletRequest;
+
+@RequestMapping("/api")
 @RequiredArgsConstructor
 @RestController
 public class BookmarkApiController {
@@ -20,7 +19,7 @@ public class BookmarkApiController {
     private final UserService userService;
     private final CampService campService;
     private final BookmarkService bookmarkService;
-/*
+
     //campid가 넘어옴
     @PostMapping("/bookmark/{id}")
     public String addBookmark(@PathVariable(value="id") Long id, HttpServletRequest request){
@@ -45,5 +44,4 @@ public class BookmarkApiController {
 
         System.out.println("캠핑장 id : " + id + " 북마크 해제");
     }
-*/
 }

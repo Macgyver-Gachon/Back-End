@@ -51,15 +51,11 @@ public class UserApiController {
         return ResponseEntity.ok().body(user);
     }
 
-}
-
-/*
-
     //회원탈퇴
-    @DeleteMapping("/user/mypage")
+    @DeleteMapping("/user/delete")
     public void delete(HttpServletRequest request) {
         User user = userService.getUser(request);
-        userService.delete(user.getId());
+        userService.delete(user);
     }
 
-    */
+}

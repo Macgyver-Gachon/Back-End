@@ -17,6 +17,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
@@ -159,6 +160,11 @@ public class UserService {
 
         return user;
     }
+
+    @Transactional
+    public void delete(User user) {
+        userRepository.delete(user);
+    }
 }
 
 
@@ -176,13 +182,6 @@ public class UserService {
         return userRepository.findById(userid);
     }
 
-    @Transactional
-    public void delete(String userid) {
-        User user = userRepository.findByUserid(userid)
-                .orElseThrow(() -> new IllegalArgumentException("해당 사용자가 없습니다. id=" + userid));
-
-        userRepository.delete(user);
-    }
 
 }
      */

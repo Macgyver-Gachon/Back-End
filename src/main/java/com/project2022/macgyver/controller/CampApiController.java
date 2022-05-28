@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
@@ -32,12 +33,12 @@ public class CampApiController {
     private final BookmarkService bookmarkService;
 
 
-    /*
+
     //캠핑장 추천 페이지 - 최초접근
     @GetMapping("/camp")
-    public String camp(){
-        SessionUser sessionUser = (SessionUser)session.getAttribute("user");
-        User user = userService.findByid(sessionUser.getUserid());
+    public String camp(HttpServletRequest request){
+        User user = userService.getUser(request);
+
         //prefer 정보가 있는 회원
         if (preferService.exists(user)) return "redirect:/camp/recommend";
         //prefer 정보가 없는 회원
@@ -46,24 +47,20 @@ public class CampApiController {
 
     //캠핑장 추천 페이지
     @GetMapping("/camp/recommend")
-    public List<CampListResponseDto> campRecommend(){
-        //수정필요
-        SessionUser sessionUser = (SessionUser)session.getAttribute("user");
-        User user = userService.findByid(sessionUser.getUserid());
+    public List<CampListResponseDto> campRecommend(HttpServletRequest request){
+        User user = userService.getUser(request);
         //prefer 페이지에서 '다음에 하기' 눌렀을 경우임. 단순 정렬 인기순?리스트로 반환 & 서비스에 ids 리스트를 파라미터로 넘겨주게 수정해야함.
-        //if (preferService.exists(sessionUser.getUserid())) return campService.findAllById();
+        if (preferService.exists(user)) return campService.findAllById();
         //prefer 존재하는 경우. 리스트로 반환 & 서비스에 ids 리스트를 파라미터로 넘겨주게 수정해야함.
-        //else
-        return campService.findAllById();
+        else return campService.findAllById();
     }
 
     // 캠핑장 상세보기 페이지 - 단건
     @GetMapping("/camp/{id}")
-    public CampResponseDto campInfo(@PathVariable Long id) {
+    public CampResponseDto campInfo(@PathVariable Long id, HttpServletRequest request) {
         boolean mark = false;
 
-        SessionUser sessionUser = (SessionUser)session.getAttribute("user");
-        User user = userService.findByid(sessionUser.getUserid());
+        User user = userService.getUser(request);
         Camp camp = campService.findBycampId(id);
 
         Bookmark bookmark = bookmarkService.findByUserAndCamp(user, camp);
@@ -73,7 +70,6 @@ public class CampApiController {
         }
         return campService.findById(id, mark);
     }
-    */
 
     /*캠핑장 전체 리스트 보내기 - 상세보기 페이지*/
     @GetMapping("/camp/list")

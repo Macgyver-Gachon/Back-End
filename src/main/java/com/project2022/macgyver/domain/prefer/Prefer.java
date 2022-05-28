@@ -21,16 +21,6 @@ public class Prefer {
     @JoinColumn(name = "userid", referencedColumnName = "id")
     private User user;
 
-    /* fk=pk로 받지않고 일반컬럼에 추가해보기
-    @Id
-    private String userid;     //email이 아이디로 들어감.
-
-    @OneToOne//(fetch = FetchType.LAZY)
-    @MapsId //@MapsId 는 @id로 지정한 컬럼에 @OneToOne 이나 @ManyToOne 관계를 매핑시키는 역할
-    @JoinColumn(referencedColumnName = "userid")
-    private User user;
-    * */
-
     /* 질문1: 나는 뚜벅이다
     0 -> no
     1 -> yes */
