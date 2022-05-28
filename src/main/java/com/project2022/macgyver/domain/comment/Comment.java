@@ -35,14 +35,14 @@ public class Comment {
     private String modifiedDate;
 
     @ManyToOne
-    @JoinColumn(name = "posts_id")
+    @JoinColumn(name = "postsid", referencedColumnName = "id")
     private Posts posts;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "userid", referencedColumnName = "id")
     private User user; // 작성자
 
-    /* 댓글 수정 */
+    // 댓글 수정
     public void update(String comment) {
         this.comment = comment;
     }

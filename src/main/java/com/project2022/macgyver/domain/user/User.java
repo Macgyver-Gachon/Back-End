@@ -43,9 +43,9 @@ public class User extends BaseTimeEntity {
         this.kakaoid = kakaoid;
         this.nickname = nickname;
         this.email = email;
-        this.gender=gender;
-        this.birthday=birthday;
-        this.role=role;
+        this.gender = gender;
+        this.birthday = birthday;
+        this.role = role;
     }
 
 }
