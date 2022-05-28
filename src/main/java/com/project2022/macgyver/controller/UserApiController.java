@@ -28,9 +28,12 @@ public class UserApiController {
 
         String jwtToken = userService.SaveUserAndGetToken(oauthToken.getAccess_token());
 
+        System.out.println("컨트롤러에서 토큰 발급================================");
+        System.out.println(jwtToken);
+        System.out.println("컨트롤러에서 발급 완료================================");
+
         HttpHeaders headers = new HttpHeaders();
         headers.add(JwtProperties.HEADER_STRING, JwtProperties.TOKEN_PREFIX + jwtToken);
-        headers.set("Content-Type", "application/json");
 
         return ResponseEntity.ok().headers(headers).body("success");
     }
