@@ -27,7 +27,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        String jwtHeader = request.getHeader(JwtProperties.HEADER_STRING); //check
+        String jwtHeader = ((HttpServletRequest)request).getHeader(JwtProperties.HEADER_STRING); //check
 
         // header 가 정상적인 형식인지 확인
         if(jwtHeader == null || !jwtHeader.startsWith(JwtProperties.TOKEN_PREFIX)) {
@@ -38,10 +38,10 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         // jwt 토큰을 검증해서 정상적인 사용자인지 확인
         String token = jwtHeader.replace(JwtProperties.TOKEN_PREFIX, "");
 
-        Long id = null;
+        Long userCode = null;
 
         try {
-            id = JWT.require(Algorithm.HMAC512(JwtProperties.SECRET)).build().verify(token)
+            userCode = JWT.require(Algorithm.HMAC512(JwtProperties.SECRET)).build().verify(token)
                     .getClaim("id").asLong();
 
         } catch (TokenExpiredException e) {
@@ -52,7 +52,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
             request.setAttribute(JwtProperties.HEADER_STRING, "유효하지 않은 토큰입니다.");
         }
 
-        request.setAttribute("id", id);
+        request.setAttribute("userCode", userCode);
 
         filterChain.doFilter(request, response);
     }

@@ -144,7 +144,16 @@ public class UserService {
     }
 
     public User getUser(HttpServletRequest request) {
-        Long id = (Long) request.getAttribute("id");
+        System.out.println("UserService getUser 시작 ================================");
+        System.out.println("================= requsest의 전체 구조 보기 =====================");
+        System.out.println(request);
+
+        System.out.println("================= requsest의 id(userCode) 보기 =====================");
+
+        Long id = (Long) request.getAttribute("userCode");
+
+        System.out.println(id);
+
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("해당 사용자가 없습니다. id=" + id));
 

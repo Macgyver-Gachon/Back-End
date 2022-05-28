@@ -41,7 +41,13 @@ public class UserApiController {
     //내 정보 보기
     @GetMapping("/user/mypage")
     public ResponseEntity<Object> getCurrentUser(HttpServletRequest request){
+        System.out.println("Controller 내 정보 보기 시작 ================================");
+
         User user = userService.getUser(request);
+
+        System.out.println("Controller ================= 반환 user 형태보기 =====================");
+        System.out.println(user);
+
         return ResponseEntity.ok().body(user);
     }
 
