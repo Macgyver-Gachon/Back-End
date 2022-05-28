@@ -18,7 +18,7 @@ public class PreferService {
         Prefer prefer = requestDto.toEntity();
         prefer.setUser(user);
         Prefer preferEntity = preferRepository.save(prefer);
-        preferEntity.setUser(user);     //이부분 .getUserid로 안바꿔도 되는건지?
+        //preferEntity.setUser(user);     //이부분 .getUserid로 안바꿔도 되는건지? 없어도 될 거 같음.
         return preferEntity.getId();
     }
 

@@ -48,7 +48,7 @@ public class UserApiController {
 
     //내 정보 보기
     @GetMapping("/user/mypage")
-    public ResponseEntity<Object> getCurrentUser(HttpServletRequest request){
+    public User getCurrentUser(HttpServletRequest request){
         System.out.println("Controller 내 정보 보기 시작 ================================");
 
         User user = userService.getUser(request);
@@ -56,7 +56,7 @@ public class UserApiController {
         System.out.println("Controller ================= 반환 user 형태보기 =====================");
         System.out.println(user);
 
-        return ResponseEntity.ok().body(user);
+        return user;
     }
 
     /*나의 북마크 조회*/

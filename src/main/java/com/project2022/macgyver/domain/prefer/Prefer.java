@@ -58,6 +58,10 @@ public class Prefer {
     @Column
     private String q6;
 
+    public Prefer(){
+
+    }
+    
     @Builder
     public Prefer(User user, String q1, String q2, String q3, String q4, String q5, String q6){
         this.user=user;

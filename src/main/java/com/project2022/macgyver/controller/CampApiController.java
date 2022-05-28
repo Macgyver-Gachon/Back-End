@@ -68,6 +68,7 @@ public class CampApiController {
             //북마크 되어있는 상태
             mark = true;
         }
+
         return campService.findById(id, mark);
     }
 
