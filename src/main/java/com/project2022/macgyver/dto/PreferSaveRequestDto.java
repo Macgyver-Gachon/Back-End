@@ -6,11 +6,13 @@ import com.project2022.macgyver.domain.prefer.Prefer;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
+@Setter
 @NoArgsConstructor
-@JsonFormat(shape = JsonFormat.Shape.ARRAY)
-@JsonPropertyOrder({"q1", "q2", "q3", "q4", "q5", "q6" })
+//@JsonFormat(shape = JsonFormat.Shape.ARRAY)
+//@JsonPropertyOrder({"q1", "q2", "q3", "q4", "q5", "q6"})
 public class PreferSaveRequestDto {
 
     private String q1;
