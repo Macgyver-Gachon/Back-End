@@ -28,7 +28,6 @@ public class PreferSaveRequestDto {
 
     public Prefer toEntity(){
         return Prefer.builder()
-                //.user()
                 .q1(q1)
                 .q2(q2)
                 .q3(q3)

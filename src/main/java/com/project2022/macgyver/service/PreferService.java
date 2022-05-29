@@ -15,11 +15,20 @@ public class PreferService {
 
     @Transactional
     public Long saveInfo(PreferSaveRequestDto requestDto, User user) {
-        Prefer prefer = requestDto.toEntity();
-        prefer.setUser(user);
-        Prefer preferEntity = preferRepository.save(prefer);
-        //preferEntity.setUser(user);     //이부분 .getUserid로 안바꿔도 되는건지? 없어도 될 거 같음.
-        return preferEntity.getId();
+
+        Prefer prefer = Prefer.builder()
+                .user(user)
+                .q1(requestDto.getQ1())
+                .q2(requestDto.getQ2())
+                .q3(requestDto.getQ3())
+                .q4(requestDto.getQ4())
+                .q5(requestDto.getQ5())
+                .q6(requestDto.getQ6())
+                .build();
+
+        preferRepository.save(prefer);
+
+        return prefer.getId();
     }
 
     /*prefer에 특정 사용자 존재하는지 확인*/
