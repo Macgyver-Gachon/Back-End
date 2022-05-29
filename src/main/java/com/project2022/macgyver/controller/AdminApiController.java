@@ -32,6 +32,5 @@ public class AdminApiController {
     @DeleteMapping("/admin/userList/{id}")
     public void delete(@PathVariable Long id) {
         adminService.delete(id);
-        //return id;
     }
 }

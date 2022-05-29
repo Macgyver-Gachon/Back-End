@@ -37,5 +37,4 @@ public class AdminService {
         adminRepository.delete(user);
     }
 
-
 }

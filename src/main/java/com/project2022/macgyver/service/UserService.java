@@ -161,8 +161,11 @@ public class UserService {
         return user;
     }
 
+    /*회원 탈퇴*/
     @Transactional
-    public void delete(User user) {
+    public void delete(Long id) {
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("해당 사용자가 없습니다. id=" + id));
         userRepository.delete(user);
     }
 }

@@ -73,10 +73,9 @@ public class UserApiController {
     }
 
     //회원탈퇴
-    @DeleteMapping("/user/delete")
-    public void delete(HttpServletRequest request) {
-        User user = userService.getUser(request);
-        userService.delete(user);
+    @DeleteMapping("/user/delete/{id}")
+    public void delete(@PathVariable Long id) {
+        userService.delete(id);
     }
 
 }
