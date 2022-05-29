@@ -3,7 +3,6 @@ package com.project2022.macgyver.service;
 import com.project2022.macgyver.domain.camp.Camp;
 import com.project2022.macgyver.domain.camp.CampRepository;
 import com.project2022.macgyver.dto.CampAllListResponseDto;
-import com.project2022.macgyver.dto.CampBookmarkListResponseDto;
 import com.project2022.macgyver.dto.CampListResponseDto;
 import com.project2022.macgyver.dto.CampResponseDto;
 import lombok.RequiredArgsConstructor;
@@ -52,9 +51,9 @@ public class CampService {
         return campRepository.findBycampId(id);
     }
 
-    /*캠핑장 번호로 찾기 - 북마크 리스트버전*/
+    /*캠핑장 번호로 찾기 - 리스트버전*/
     @Transactional(readOnly = true)
-    public CampBookmarkListResponseDto findBycampMark(Long id) {
+    public CampListResponseDto findBycampMark(Long id) {
         return campRepository.findBycampMark(id);
     }
 

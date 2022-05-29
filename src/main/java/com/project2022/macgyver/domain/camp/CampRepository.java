@@ -1,6 +1,5 @@
 package com.project2022.macgyver.domain.camp;
 
-import com.project2022.macgyver.dto.CampBookmarkListResponseDto;
 import com.project2022.macgyver.dto.CampListResponseDto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -16,7 +15,7 @@ public interface CampRepository extends JpaRepository<Camp, Long>{
     Camp findBycampId(@Param("id") Long id);
 
     @Query("SELECT p FROM Camp p WHERE p.id=:id")
-    CampBookmarkListResponseDto findBycampMark(@Param("id") Long id);
+    CampListResponseDto findBycampMark(@Param("id") Long id);
 
     List<Camp> findAllByIdIn(List<Long> ids);
 
