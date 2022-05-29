@@ -23,11 +23,10 @@ public class CommentService {
     private final UserRepository userRepository;
     private final PostsRepository postsRepository;
 
-    /*
     // CREATE
     @Transactional
-    public Long save(Long id, String username, CommentDto.Request dto) {
-        User user = userRepository.findByUsername(username);
+    public Long save(Long id, String nickname, CommentDto.Request dto) {
+        User user = userRepository.findByNickname(nickname);
         Posts posts = postsRepository.findById(id).orElseThrow(() ->
                 new IllegalArgumentException("댓글 쓰기 실패: 해당 게시글이 존재하지 않습니다. " + id));
 
@@ -66,5 +65,4 @@ public class CommentService {
 
         commentRepository.delete(comment);
     }
-     */
 }

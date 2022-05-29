@@ -31,14 +31,14 @@ public class Posts extends BaseTimeEntity {
     private int view;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "userid", referencedColumnName = "id")
     private User user;
 
     @OneToMany(mappedBy = "posts", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     @OrderBy("id asc") // 댓글 정렬
     private List<Comment> comments;
 
-    /* 게시글 수정 */
+    // 게시글 수정
     public void update(String title, String content) {
         this.title = title;
         this.content = content;

@@ -1,25 +1,31 @@
 package com.project2022.macgyver.controller;
 
+import com.project2022.macgyver.domain.user.User;
+import com.project2022.macgyver.dto.CommentDto;
 import com.project2022.macgyver.service.CommentService;
+import com.project2022.macgyver.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-/**
- * REST API Controller
- */
+import javax.servlet.http.HttpServletRequest;
+import java.util.List;
+
+/** REST API Controller */
 @RequiredArgsConstructor
 @RequestMapping("/api")
 @RestController
 public class CommentApiController {
 
     private final CommentService commentService;
+    private final UserService userService;
 
-    /*
     // CREATE
     @PostMapping("/posts/{id}/comments")
     public ResponseEntity save(@PathVariable Long id, @RequestBody CommentDto.Request dto,
-                               @LoginUser UserResponseDto userSessionDto) {
-        return ResponseEntity.ok(commentService.save(id, userSessionDto.getUsername(), dto));
+                               HttpServletRequest request) {
+        User user = userService.getUser(request);
+        return ResponseEntity.ok(commentService.save(id, user.getNickname(), dto));
     }
 
     // READ
@@ -41,5 +47,4 @@ public class CommentApiController {
         commentService.delete(id);
         return ResponseEntity.ok(id);
     }
-     */
 }

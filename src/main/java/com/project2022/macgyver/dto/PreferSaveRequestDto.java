@@ -1,5 +1,7 @@
 package com.project2022.macgyver.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.project2022.macgyver.domain.prefer.Prefer;
 import lombok.Builder;
 import lombok.Getter;
@@ -7,6 +9,8 @@ import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor
+@JsonFormat(shape = JsonFormat.Shape.ARRAY)
+@JsonPropertyOrder({"q1", "q2", "q3", "q4", "q5", "q6" })
 public class PreferSaveRequestDto {
 
     private String q1;
