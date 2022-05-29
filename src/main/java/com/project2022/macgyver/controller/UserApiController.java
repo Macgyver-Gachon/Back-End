@@ -3,6 +3,7 @@ package com.project2022.macgyver.controller;
 import com.project2022.macgyver.config.jwt.JwtProperties;
 import com.project2022.macgyver.domain.bookmark.Bookmark;
 import com.project2022.macgyver.domain.user.User;
+import com.project2022.macgyver.dto.CampBookmarkListResponseDto;
 import com.project2022.macgyver.dto.CampListResponseDto;
 import com.project2022.macgyver.service.BookmarkService;
 import com.project2022.macgyver.service.CampService;
@@ -61,11 +62,11 @@ public class UserApiController {
 
     /*나의 북마크 조회*/
     @GetMapping("/user/bookmark")
-    public List<CampListResponseDto> myBookmark(HttpServletRequest request){
+    public List<CampBookmarkListResponseDto> myBookmark(HttpServletRequest request){
         User user = userService.getUser(request);
 
         List<Bookmark> bookmarkList = bookmarkService.findmyBookmark(user.getId());
-        List<CampListResponseDto> campList = new ArrayList<>();
+        List<CampBookmarkListResponseDto> campList = new ArrayList<>();
         for(Bookmark b : bookmarkList){
             campList.add(campService.findBycampMark(b.getCamp().getId()));
         }

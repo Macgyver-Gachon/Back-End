@@ -1,10 +1,8 @@
 package com.project2022.macgyver.dto;
 
 import com.project2022.macgyver.domain.camp.Camp;
-import lombok.Getter;
 
-@Getter
-public class CampListResponseDto {
+public class CampBookmarkListResponseDto {
     private long id;
     private String facltNm;
     private String featureNm;
@@ -12,8 +10,9 @@ public class CampListResponseDto {
     private String addr2;
     private String lineIntro;
     private String firstImageUrl;
+    private boolean mark;
 
-    public CampListResponseDto(Camp camp) {
+    public CampBookmarkListResponseDto(Camp camp) {
         this.id = camp.getId();
         this.facltNm = camp.getFacltNm();
         this.featureNm = camp.getFeatureNm();
@@ -21,5 +20,6 @@ public class CampListResponseDto {
         this.addr2 = camp.getAddr2();
         this.lineIntro = camp.getLineIntro();
         this.firstImageUrl = camp.getFirstImageUrl();
+        this.mark = true;
     }
 }
