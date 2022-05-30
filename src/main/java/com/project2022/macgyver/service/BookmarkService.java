@@ -43,4 +43,10 @@ public class BookmarkService {
     public List<Bookmark> findmyBookmark(Long id){
         return bookmarkRepository.findByUser(id);
     }
+
+    /*사용자가 북마크 했는지 확인*/
+    @Transactional
+    public boolean exists(User user){
+        return bookmarkRepository.existsByUser(user);
+    }
 }

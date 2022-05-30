@@ -15,8 +15,19 @@ public class PreferService {
 
     @Transactional
     public Long saveInfo(PreferSaveRequestDto requestDto, User user) {
-
-        Prefer prefer = Prefer.builder()
+        Prefer prefer = new Prefer();
+        if(preferRepository.existsByUser(user)){
+            prefer = preferRepository.findByUser(user);
+        }
+        prefer.setUser(user);
+        prefer.setQ1(requestDto.getQ1());
+        prefer.setQ2(requestDto.getQ2());
+        prefer.setQ3(requestDto.getQ3());
+        prefer.setQ4(requestDto.getQ4());
+        prefer.setQ5(requestDto.getQ5());
+        prefer.setQ6(requestDto.getQ6());
+        /*
+        prefer = Prefer.builder()
                 .user(user)
                 .q1(requestDto.getQ1())
                 .q2(requestDto.getQ2())
@@ -25,6 +36,8 @@ public class PreferService {
                 .q5(requestDto.getQ5())
                 .q6(requestDto.getQ6())
                 .build();
+
+         */
 
         preferRepository.save(prefer);
 

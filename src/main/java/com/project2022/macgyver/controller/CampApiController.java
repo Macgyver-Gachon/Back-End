@@ -11,15 +11,12 @@ import com.project2022.macgyver.service.CampService;
 import com.project2022.macgyver.service.PreferService;
 import com.project2022.macgyver.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -31,8 +28,6 @@ public class CampApiController {
     private final PreferService preferService;
     private final UserService userService;
     private final BookmarkService bookmarkService;
-
-
 
     //캠핑장 추천 페이지 - 최초접근
     @GetMapping("/camp")
@@ -49,10 +44,11 @@ public class CampApiController {
     @GetMapping("/camp/recommend")
     public List<CampListResponseDto> campRecommend(HttpServletRequest request){
         User user = userService.getUser(request);
-        //prefer 페이지에서 '다음에 하기' 눌렀을 경우임. 단순 정렬 인기순?리스트로 반환 & 서비스에 ids 리스트를 파라미터로 넘겨주게 수정해야함.
-        if (preferService.exists(user)) return campService.findAllById();
-        //prefer 존재하는 경우. 리스트로 반환 & 서비스에 ids 리스트를 파라미터로 넘겨주게 수정해야함.
-        else return campService.findAllById();
+
+        //북마크 있는 경우 - 시나리오2 - return 서비스는 임의로 설정해둔 것. 알아서 수정
+        if (bookmarkService.exists(user)) return campService.findAllById();
+        //북마크 없는 경우 - 시나리오1
+        else return campService.recommendNoOne(user);
     }
 
     // 캠핑장 상세보기 페이지 - 단건

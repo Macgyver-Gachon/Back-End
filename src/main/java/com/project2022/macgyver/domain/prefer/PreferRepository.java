@@ -13,7 +13,6 @@ public interface PreferRepository extends JpaRepository<Prefer, Long> {
 
     boolean existsByUser(User user);
 
-    //@Query("SELECT p FROM Prefer p WHERE p.userid=:userid")
-    //boolean exist(@Param("id") Long id);
+    Prefer findByUser(User user);
 
 }

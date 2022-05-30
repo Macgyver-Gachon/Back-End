@@ -1,5 +1,6 @@
 package com.project2022.macgyver.domain.bookmark;
 
+import com.project2022.macgyver.domain.user.User;
 import com.project2022.macgyver.dto.BookmarkListResponseDto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -20,4 +21,6 @@ public interface BookmarkRepository extends JpaRepository<Bookmark, Long> {
 
     @Query("SELECT p FROM Bookmark p WHERE p.user.id=:userid")
     List<Bookmark> findByUser(@Param("userid") Long userid);
+
+    boolean existsByUser(User user);
 }

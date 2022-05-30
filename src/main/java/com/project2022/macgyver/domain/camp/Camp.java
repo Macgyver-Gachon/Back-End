@@ -97,6 +97,13 @@ public class Camp {
     private String glampInnerFclty;
     @Column(name="caravinnerfclty")
     private String caravInnerFclty;
+    private Double score;
+    private Integer nocar;
+    private Double clean;
+    private Double theme;
+    private Double entertainment;
+    private Double kids;
+    private Double pet;
 
     @Builder
     public Camp(String facltNm,String lineIntro, String intro, String featureNm, String insrncAt, String induty,
@@ -107,7 +114,8 @@ public class Camp {
                 String operPdCl, String operDeCl, String trlerAcmpnyAt, String caravInnerFclty, String glampInnerFclty,
                 String caravAcmpnyAt, Integer toiletCo, Integer swrmCo, Integer wtrplCo, String brazierCl,
                 String sbrsEtc, String posblFcltyCl, Integer fireSensorCo,
-                String themaEnvrnCl, String eqpmnLendCl, String animalCmgCl, String tourEraCl, String firstImageUrl) {
+                String themaEnvrnCl, String eqpmnLendCl, String animalCmgCl, String tourEraCl, String firstImageUrl, Double score, Integer nocar,
+                Double clean, Double theme, Double entertainment, Double kids, Double pet) {
         this.addr1 = addr1 ;
         this.addr2 = addr2;
         this.direction = direction;
@@ -150,5 +158,12 @@ public class Camp {
         this.tourEraCl = tourEraCl;
         this.trlerAcmpnyAt = trlerAcmpnyAt;
         this.wtrplCo = wtrplCo;
+        this.score = score;
+        this.nocar = nocar;
+        this.clean = clean;
+        this.theme = theme;
+        this.entertainment = entertainment;
+        this.kids = kids;
+        this.pet = pet;
     }
 }
