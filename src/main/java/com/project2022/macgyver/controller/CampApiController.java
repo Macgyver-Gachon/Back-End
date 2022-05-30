@@ -35,23 +35,12 @@ public class CampApiController {
     private final UserService userService;
     private final BookmarkService bookmarkService;
 
-    //캠핑장 추천 페이지 - 최초접근
-    @GetMapping("/camp")
-    public String camp(HttpServletRequest request){
-        User user = userService.getUser(request);
-
-        //prefer 정보가 있는 회원
-        if (preferService.exists(user)) return "";
-        //prefer 정보가 없는 회원
-        else return "../checkList";
-    }
-
     //캠핑장 추천 페이지
     @GetMapping("/camp/recommend")
     public List<CampListResponseDto> campRecommend(HttpServletRequest request){
         User user = userService.getUser(request);
 
-        //선호 정보 없는 경우
+        //선호 정보 없는 경우 - 프론트 단에서 리다이렉트 처리
         List<CampListResponseDto> nope = new ArrayList<>();
         if (!preferService.exists(user)) return nope;
 
