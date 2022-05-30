@@ -42,7 +42,7 @@ public class CampApiController {
         //prefer 정보가 있는 회원
         if (preferService.exists(user)) return "";
         //prefer 정보가 없는 회원
-        else return "./checkList";
+        else return "../checkList";
     }
 
     //캠핑장 추천 페이지
