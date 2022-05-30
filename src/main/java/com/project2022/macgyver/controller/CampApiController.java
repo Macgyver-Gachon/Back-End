@@ -79,13 +79,4 @@ public class CampApiController {
         System.out.println("캠핑장 전체 리스트 출력");
         return campService.findAllAsc();
     }
-
-    @GetMapping("/test")
-    public String test() throws URISyntaxException {
-        URI forwardUri = new URI("https://www.daum.net");
-        RestTemplate restTemplate = new RestTemplate();
-        restTemplate.getMessageConverters()
-                .add(0, new StringHttpMessageConverter(StandardCharsets.UTF_8));
-        return restTemplate.getForObject(forwardUri, String.class);
-    }
 }

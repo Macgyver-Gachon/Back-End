@@ -26,18 +26,6 @@ public class PreferService {
         prefer.setQ4(requestDto.getQ4());
         prefer.setQ5(requestDto.getQ5());
         prefer.setQ6(requestDto.getQ6());
-        /*
-        prefer = Prefer.builder()
-                .user(user)
-                .q1(requestDto.getQ1())
-                .q2(requestDto.getQ2())
-                .q3(requestDto.getQ3())
-                .q4(requestDto.getQ4())
-                .q5(requestDto.getQ5())
-                .q6(requestDto.getQ6())
-                .build();
-
-         */
 
         preferRepository.save(prefer);
 
