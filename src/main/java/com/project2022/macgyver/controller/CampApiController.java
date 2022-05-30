@@ -11,12 +11,17 @@ import com.project2022.macgyver.service.CampService;
 import com.project2022.macgyver.service.PreferService;
 import com.project2022.macgyver.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletRequest;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -73,5 +78,14 @@ public class CampApiController {
     public List<CampAllListResponseDto> campList() {
         System.out.println("캠핑장 전체 리스트 출력");
         return campService.findAllAsc();
+    }
+
+    @GetMapping("/test")
+    public String test() throws URISyntaxException {
+        URI forwardUri = new URI("https://www.daum.net");
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.getMessageConverters()
+                .add(0, new StringHttpMessageConverter(StandardCharsets.UTF_8));
+        return restTemplate.getForObject(forwardUri, String.class);
     }
 }
