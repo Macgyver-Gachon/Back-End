@@ -40,9 +40,9 @@ public class CampApiController {
         User user = userService.getUser(request);
 
         //prefer 정보가 있는 회원
-        if (preferService.exists(user)) return "redirect:/camp/recommend";
+        if (preferService.exists(user)) return "./Recommend";
         //prefer 정보가 없는 회원
-        else return "redirect:/user/prefer";
+        else return "./checkList";
     }
 
     //캠핑장 추천 페이지
