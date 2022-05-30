@@ -50,8 +50,10 @@ public class CampApiController {
     @GetMapping("/camp/recommend")
     public List<CampListResponseDto> campRecommend(HttpServletRequest request){
         User user = userService.getUser(request);
-        
-        if (!preferService.exists(user)) return null;
+
+        //선호 정보 없는 경우
+        List<CampListResponseDto> nope = new ArrayList<>();
+        if (!preferService.exists(user)) return nope;
 
         //북마크 있는 경우 - 시나리오2 - return 서비스는 임의로 설정해둔 것. 알아서 수정
         if (bookmarkService.exists(user)) return campService.findAllById();

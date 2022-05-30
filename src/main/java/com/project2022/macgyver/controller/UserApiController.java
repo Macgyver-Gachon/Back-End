@@ -36,10 +36,6 @@ public class UserApiController {
 
         String jwtToken = userService.SaveUserAndGetToken(oauthToken.getAccess_token());
 
-        System.out.println("컨트롤러에서 토큰 발급================================");
-        System.out.println(jwtToken);
-        System.out.println("컨트롤러에서 발급 완료================================");
-
         HttpHeaders headers = new HttpHeaders();
         headers.add(JwtProperties.HEADER_STRING, JwtProperties.TOKEN_PREFIX + jwtToken);
 
@@ -49,14 +45,7 @@ public class UserApiController {
     //내 정보 보기
     @GetMapping("/user/mypage")
     public User getCurrentUser(HttpServletRequest request){
-        System.out.println("Controller 내 정보 보기 시작 ================================");
-
-        User user = userService.getUser(request);
-
-        System.out.println("Controller ================= 반환 user 형태보기 =====================");
-        System.out.println(user);
-
-        return user;
+        return userService.getUser(request);
     }
 
     /*나의 북마크 조회*/
