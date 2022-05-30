@@ -40,7 +40,7 @@ public class CampApiController {
         User user = userService.getUser(request);
 
         //prefer 정보가 있는 회원
-        if (preferService.exists(user)) return "./Recommend";
+        if (preferService.exists(user)) return "";
         //prefer 정보가 없는 회원
         else return "./checkList";
     }
