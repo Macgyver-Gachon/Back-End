@@ -36,8 +36,16 @@ public class CampService {
     public List<CampListResponseDto> findAllById() {
         //추천 캠핑장의 번호를 리스트로 넘겨줘야 함.-> 파라미터 추가해서 controller쪽에서 넘겨줘야할거 같음.
         List<Long> ids = new ArrayList<>();
-        ids.add(1L);
+        ids.add(4L);
         ids.add(6L);
+        ids.add(12L);
+        ids.add(8L);
+        ids.add(10L);
+        ids.add(18L);
+        ids.add(11L);
+        ids.add(17L);
+        ids.add(5L);
+        ids.add(2L);
         return campRepository.findAllByIdIn(ids).stream()
                 .map(CampListResponseDto::new).collect(Collectors.toList());
     }
