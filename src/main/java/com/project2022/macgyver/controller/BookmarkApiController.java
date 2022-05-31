@@ -55,7 +55,7 @@ public class BookmarkApiController {
         List<Bookmark> bookmarkList = bookmarkService.findmyBookmark(user.getId());
         List<Long> ids = new ArrayList<>();
         for(Bookmark b : bookmarkList){
-            ids.add(b.getId());
+            ids.add(b.getCamp().getId());
         }
         return ids;
     }
