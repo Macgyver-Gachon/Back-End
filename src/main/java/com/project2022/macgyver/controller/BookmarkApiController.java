@@ -10,6 +10,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.List;
 
 @RequestMapping("/api")
 @RequiredArgsConstructor
@@ -20,7 +22,7 @@ public class BookmarkApiController {
     private final CampService campService;
     private final BookmarkService bookmarkService;
 
-    //campid가 넘어옴
+    /*북마크 등록*/
     @PostMapping("/bookmark/{id}")
     public String addBookmark(@PathVariable(value="id") Long id, HttpServletRequest request){
         String result;
@@ -37,11 +39,24 @@ public class BookmarkApiController {
         return result;
     }
 
+    /*북마크 등록 해제*/
     @DeleteMapping("/bookmark/{id}")
     public void deleteBookmark(@PathVariable(value="id") Long id, HttpServletRequest request){
         User user = userService.getUser(request);
         bookmarkService.deleteByUserAndCamp(user.getId(), id);
 
         System.out.println("캠핑장 id : " + id + " 북마크 해제");
+    }
+
+    /*북마크된 캠핑장 리스트*/
+    @GetMapping("/bookmark/ids")
+    public List<Long> bookmarkList(HttpServletRequest request){
+        User user = userService.getUser(request);
+        List<Bookmark> bookmarkList = bookmarkService.findmyBookmark(user.getId());
+        List<Long> ids = new ArrayList<>();
+        for(Bookmark b : bookmarkList){
+            ids.add(b.getId());
+        }
+        return ids;
     }
 }

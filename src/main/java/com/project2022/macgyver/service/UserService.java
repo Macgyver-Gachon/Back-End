@@ -34,15 +34,6 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
-    /*
-    //환경 변수 가져오기
-    @Value("${kakao.clientId}")
-    String client_id;
-
-    @Value("${kakao.secret}")
-    String client_secret;
-     */
-
     public OauthToken getAccessToken(String code) {
 
         RestTemplate rt = new RestTemplate();
@@ -169,24 +160,5 @@ public class UserService {
         userRepository.delete(user);
     }
 }
-
-
-    /*
-    @Transactional(readOnly = true)
-    public UserResponseDto findByUserid(String userid) {
-        User entity = userRepository.findByUserid(userid)
-                .orElseThrow(() -> new IllegalArgumentException("해당 사용자가 없습니다. id=" + userid));
-
-        return new UserResponseDto(entity);
-    }
-
-    @Transactional(readOnly = true)
-    public User findByid(String userid) {
-        return userRepository.findById(userid);
-    }
-
-
-}
-     */
 
 
