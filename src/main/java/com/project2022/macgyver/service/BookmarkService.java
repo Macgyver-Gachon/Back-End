@@ -4,13 +4,11 @@ import com.project2022.macgyver.domain.bookmark.Bookmark;
 import com.project2022.macgyver.domain.bookmark.BookmarkRepository;
 import com.project2022.macgyver.domain.camp.Camp;
 import com.project2022.macgyver.domain.user.User;
-import com.project2022.macgyver.dto.BookmarkListResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service

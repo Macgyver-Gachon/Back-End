@@ -1,6 +1,5 @@
 package com.project2022.macgyver.service;
 
-import com.project2022.macgyver.domain.bookmark.BookmarkRepository;
 import com.project2022.macgyver.domain.camp.Camp;
 import com.project2022.macgyver.domain.camp.CampRepository;
 import com.project2022.macgyver.domain.prefer.Prefer;
@@ -9,7 +8,6 @@ import com.project2022.macgyver.domain.user.User;
 import com.project2022.macgyver.dto.CampAllListResponseDto;
 import com.project2022.macgyver.dto.CampListResponseDto;
 import com.project2022.macgyver.dto.CampResponseDto;
-import io.swagger.models.auth.In;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -79,7 +77,7 @@ public class CampService {
         if (prefer.getQ5().equals("1")) entertainment = 0.15;
         if (prefer.getQ6().equals("1")) theme = 0.17;
 
-        if (prefer.getQ1().equals("1") && prefer.getQ2().equals("0")) {//return nocar 포함하는 쿼리문 전달
+        if (prefer.getQ1().equals("1") && prefer.getQ2().equals("0")) {
             if (prefer.getQ6().equals("0")) return campRepository.findRecommendNoOne1(clean, kids, entertainment);
             else return campRepository.findRecommendNoOne2(clean, kids, entertainment, theme);
         } else {
@@ -87,7 +85,6 @@ public class CampService {
             else return campRepository.findRecommendNoOne4(clean, kids, entertainment, theme);
         }
     }
-
 }
 
 
