@@ -48,9 +48,9 @@ public class CampApiController {
         if (bookmarkService.exists(user)) return campService.findAllById();
         //북마크 없는 경우 - 시나리오1
         else {
-            //상위 10개 캠핑장만 리턴
+            //상위 20개 캠핑장만 리턴
            List<CampListResponseDto> campList = campService.recommendNoOne(user);
-            for(int i=0; i<10; i++){
+            for(int i=0; i<20; i++){
                 result.add(campList.get(i));
             }
             return result;

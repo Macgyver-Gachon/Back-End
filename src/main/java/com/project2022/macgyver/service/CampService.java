@@ -46,6 +46,16 @@ public class CampService {
         ids.add(17L);
         ids.add(5L);
         ids.add(2L);
+        ids.add(20L);
+        ids.add(38L);
+        ids.add(42L);
+        ids.add(70L);
+        ids.add(404L);
+        ids.add(19L);
+        ids.add(101L);
+        ids.add(170L);
+        ids.add(50L);
+        ids.add(25L);
         return campRepository.findAllByIdIn(ids).stream()
                 .map(CampListResponseDto::new).collect(Collectors.toList());
     }
