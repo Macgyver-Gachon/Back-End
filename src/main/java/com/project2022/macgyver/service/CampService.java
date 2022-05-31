@@ -38,33 +38,15 @@ public class CampService {
         List<Long> ids = new ArrayList<>();
         ids.add(4L);
         ids.add(6L);
-        ids.add(12L);
-        ids.add(8L);
-        ids.add(10L);
-        ids.add(18L);
-        ids.add(11L);
-        ids.add(17L);
-        ids.add(5L);
-        ids.add(2L);
-        ids.add(20L);
-        ids.add(38L);
-        ids.add(42L);
-        ids.add(70L);
-        ids.add(404L);
-        ids.add(19L);
-        ids.add(101L);
-        ids.add(170L);
-        ids.add(50L);
-        ids.add(25L);
         return campRepository.findAllByIdIn(ids).stream()
                 .map(CampListResponseDto::new).collect(Collectors.toList());
     }
 
     /*캠핑장 전체 리스트*/
     @Transactional
-    public List<CampAllListResponseDto> findAllAsc() {
+    public List<CampListResponseDto> findAllAsc() {
         return campRepository.findAllAsc().stream()
-                .map(CampAllListResponseDto::new).collect(Collectors.toList());
+                .map(CampListResponseDto::new).collect(Collectors.toList());
     }
 
     /*캠핑장 번호로 찾기*/

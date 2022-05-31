@@ -45,7 +45,7 @@ public class CampApiController {
         if (!preferService.exists(user)) return result;
 
         //북마크 있는 경우 - 시나리오2 - return 서비스는 임의로 설정해둔 것. 알아서 수정
-        if (bookmarkService.exists(user)) return campService.findAllById();
+        if (bookmarkService.exists(user)) return campService.findAllAsc();
         //북마크 없는 경우 - 시나리오1
         else {
             //상위 20개 캠핑장만 리턴
@@ -76,7 +76,7 @@ public class CampApiController {
 
     /*캠핑장 전체 리스트 보내기 - 상세보기 페이지*/
     @GetMapping("/camp/list")
-    public List<CampAllListResponseDto> campList() {
+    public List<CampListResponseDto> campList() {
         System.out.println("캠핑장 전체 리스트 출력");
         return campService.findAllAsc();
     }
