@@ -23,6 +23,7 @@ public class PostsDto {
         private String writer;
         private String content;
         private LocalDateTime createdDate, modifiedDate;
+        private String imgUrl;
         private User user;
 
         /* Dto -> Entity */
@@ -34,6 +35,7 @@ public class PostsDto {
                     .writer(writer)
                     .content(content)
                     .user(user)
+                    .imgUrl((imgUrl))
                     .build();
 
             return posts;
@@ -53,6 +55,8 @@ public class PostsDto {
         private String writer;
         private String content;
         private LocalDateTime createdDate, modifiedDate;
+
+        private String imgUrl;
         private Long userid;
 
         /* Entity -> Dto*/
@@ -64,6 +68,7 @@ public class PostsDto {
             this.content = posts.getContent();
             this.createdDate = posts.getCreatedDate();
             this.modifiedDate = posts.getModifiedDate();
+            this.imgUrl = posts.getImgUrl();
             this.userid = posts.getUser().getId();
             }
     }

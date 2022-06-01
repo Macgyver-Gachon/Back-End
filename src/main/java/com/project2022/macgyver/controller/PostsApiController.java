@@ -24,10 +24,16 @@ public class PostsApiController {
         return postsService.findById(id);
     }
 
-    //글 전체보기
+    // 글 전체보기
     @GetMapping("/posts")
     public List<PostsListResponseDto> postsList() {
         return postsService.findAllAsc();
+    }
+
+    // 글 삭제
+    @DeleteMapping("/posts/{id}")
+    public void delete(@PathVariable Long id) {
+        postsService.delete(id);
     }
 
 }
