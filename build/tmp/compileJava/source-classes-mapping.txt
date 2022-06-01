@@ -8,12 +8,12 @@ com/project2022/macgyver/dto/CampListResponseDto.java
 com/project2022/macgyver/domain/camp/Camp.java
  com.project2022.macgyver.domain.camp.Camp
  com.project2022.macgyver.domain.camp.Camp$CampBuilder
-com/project2022/macgyver/controller/PostsApiController.java
- com.project2022.macgyver.controller.PostsApiController
+com/project2022/macgyver/controller/AdminApiController.java
+ com.project2022.macgyver.controller.AdminApiController
 com/project2022/macgyver/domain/user/Role.java
  com.project2022.macgyver.domain.user.Role
-com/project2022/macgyver/service/PostsService.java
- com.project2022.macgyver.service.PostsService
+com/project2022/macgyver/dto/UserListResponseDto.java
+ com.project2022.macgyver.dto.UserListResponseDto
 com/project2022/macgyver/domain/user/UserRepository.java
  com.project2022.macgyver.domain.user.UserRepository
 com/project2022/macgyver/config/auth/CorsConfig.java
@@ -35,13 +35,10 @@ com/project2022/macgyver/domain/bookmark/Bookmark.java
  com.project2022.macgyver.domain.bookmark.Bookmark$BookmarkBuilder
 com/project2022/macgyver/config/jwt/JwtProperties.java
  com.project2022.macgyver.config.jwt.JwtProperties
-com/project2022/macgyver/controller/UserApiController.java
- com.project2022.macgyver.controller.UserApiController
-com/project2022/macgyver/dto/PostsDto.java
- com.project2022.macgyver.dto.PostsDto
- com.project2022.macgyver.dto.PostsDto$Request
- com.project2022.macgyver.dto.PostsDto$Request$RequestBuilder
- com.project2022.macgyver.dto.PostsDto$Response
+com/project2022/macgyver/controller/PreferApiController.java
+ com.project2022.macgyver.controller.PreferApiController
+com/project2022/macgyver/service/PreferService.java
+ com.project2022.macgyver.service.PreferService
 com/project2022/macgyver/domain/auth/KakaoProfile.java
  com.project2022.macgyver.domain.auth.KakaoProfile
  com.project2022.macgyver.domain.auth.KakaoProfile$KakaoAccount
@@ -54,16 +51,16 @@ com/project2022/macgyver/dto/CampResponseDto.java
  com.project2022.macgyver.dto.CampResponseDto$CampResponseDtoBuilder
 com/project2022/macgyver/dto/BookmarkListResponseDto.java
  com.project2022.macgyver.dto.BookmarkListResponseDto
-com/project2022/macgyver/domain/posts/PostsRepository.java
- com.project2022.macgyver.domain.posts.PostsRepository
+com/project2022/macgyver/domain/BaseTimeEntity.java
+ com.project2022.macgyver.domain.BaseTimeEntity
 com/project2022/macgyver/controller/BookmarkApiController.java
  com.project2022.macgyver.controller.BookmarkApiController
 com/project2022/macgyver/controller/CampApiController.java
  com.project2022.macgyver.controller.CampApiController
 com/project2022/macgyver/config/jwt/CustomAuthenticationEntryPoint.java
  com.project2022.macgyver.config.jwt.CustomAuthenticationEntryPoint
-com/project2022/macgyver/dto/PostsListResponseDto.java
- com.project2022.macgyver.dto.PostsListResponseDto
+com/project2022/macgyver/Application.java
+ com.project2022.macgyver.Application
 com/project2022/macgyver/dto/CampAllListResponseDto.java
  com.project2022.macgyver.dto.CampAllListResponseDto
 com/project2022/macgyver/config/jwt/JwtRequestFilter.java
@@ -80,18 +77,24 @@ com/project2022/macgyver/dto/PreferSaveRequestDto.java
  com.project2022.macgyver.dto.PreferSaveRequestDto$PreferSaveRequestDtoBuilder
 com/project2022/macgyver/service/BookmarkService.java
  com.project2022.macgyver.service.BookmarkService
-com/project2022/macgyver/service/PreferService.java
- com.project2022.macgyver.service.PreferService
-com/project2022/macgyver/controller/PreferApiController.java
- com.project2022.macgyver.controller.PreferApiController
-com/project2022/macgyver/dto/UserListResponseDto.java
- com.project2022.macgyver.dto.UserListResponseDto
+com/project2022/macgyver/domain/posts/PostsRepository.java
+ com.project2022.macgyver.domain.posts.PostsRepository
+com/project2022/macgyver/controller/PostsApiController.java
+ com.project2022.macgyver.controller.PostsApiController
+com/project2022/macgyver/dto/PostsListResponseDto.java
+ com.project2022.macgyver.dto.PostsListResponseDto
+com/project2022/macgyver/service/PostsService.java
+ com.project2022.macgyver.service.PostsService
 com/project2022/macgyver/domain/posts/Posts.java
  com.project2022.macgyver.domain.posts.Posts
  com.project2022.macgyver.domain.posts.Posts$PostsBuilder
-com/project2022/macgyver/Application.java
- com.project2022.macgyver.Application
-com/project2022/macgyver/controller/AdminApiController.java
- com.project2022.macgyver.controller.AdminApiController
-com/project2022/macgyver/domain/BaseTimeEntity.java
- com.project2022.macgyver.domain.BaseTimeEntity
+com/project2022/macgyver/dto/PostsCreateRequestDto.java
+ com.project2022.macgyver.dto.PostsCreateRequestDto
+ com.project2022.macgyver.dto.PostsCreateRequestDto$PostsCreateRequestDtoBuilder
+com/project2022/macgyver/controller/UserApiController.java
+ com.project2022.macgyver.controller.UserApiController
+com/project2022/macgyver/dto/PostsDto.java
+ com.project2022.macgyver.dto.PostsDto
+ com.project2022.macgyver.dto.PostsDto$Request
+ com.project2022.macgyver.dto.PostsDto$Request$RequestBuilder
+ com.project2022.macgyver.dto.PostsDto$Response
