@@ -16,9 +16,6 @@ com/project2022/macgyver/service/PostsService.java
  com.project2022.macgyver.service.PostsService
 com/project2022/macgyver/domain/user/UserRepository.java
  com.project2022.macgyver.domain.user.UserRepository
-com/project2022/macgyver/domain/comment/Comment.java
- com.project2022.macgyver.domain.comment.Comment
- com.project2022.macgyver.domain.comment.Comment$CommentBuilder
 com/project2022/macgyver/config/auth/CorsConfig.java
  com.project2022.macgyver.config.auth.CorsConfig
 com/project2022/macgyver/domain/auth/OauthToken.java
@@ -33,11 +30,6 @@ com/project2022/macgyver/service/AdminService.java
  com.project2022.macgyver.service.AdminService
 com/project2022/macgyver/domain/admin/AdminRepository.java
  com.project2022.macgyver.domain.admin.AdminRepository
-com/project2022/macgyver/dto/CommentDto.java
- com.project2022.macgyver.dto.CommentDto
- com.project2022.macgyver.dto.CommentDto$Request
- com.project2022.macgyver.dto.CommentDto$Request$RequestBuilder
- com.project2022.macgyver.dto.CommentDto$Response
 com/project2022/macgyver/domain/bookmark/Bookmark.java
  com.project2022.macgyver.domain.bookmark.Bookmark
  com.project2022.macgyver.domain.bookmark.Bookmark$BookmarkBuilder
@@ -57,8 +49,6 @@ com/project2022/macgyver/domain/auth/KakaoProfile.java
  com.project2022.macgyver.domain.auth.KakaoProfile$Properties
 com/project2022/macgyver/config/JpaConfig.java
  com.project2022.macgyver.config.JpaConfig
-com/project2022/macgyver/domain/comment/CommentRepository.java
- com.project2022.macgyver.domain.comment.CommentRepository
 com/project2022/macgyver/dto/CampResponseDto.java
  com.project2022.macgyver.dto.CampResponseDto
  com.project2022.macgyver.dto.CampResponseDto$CampResponseDtoBuilder
@@ -66,8 +56,6 @@ com/project2022/macgyver/dto/BookmarkListResponseDto.java
  com.project2022.macgyver.dto.BookmarkListResponseDto
 com/project2022/macgyver/domain/posts/PostsRepository.java
  com.project2022.macgyver.domain.posts.PostsRepository
-com/project2022/macgyver/service/CommentService.java
- com.project2022.macgyver.service.CommentService
 com/project2022/macgyver/controller/BookmarkApiController.java
  com.project2022.macgyver.controller.BookmarkApiController
 com/project2022/macgyver/controller/CampApiController.java

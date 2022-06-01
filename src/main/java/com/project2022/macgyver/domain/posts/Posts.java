@@ -1,7 +1,6 @@
 package com.project2022.macgyver.domain.posts;
 
 import com.project2022.macgyver.domain.BaseTimeEntity;
-import com.project2022.macgyver.domain.comment.Comment;
 import com.project2022.macgyver.domain.user.User;
 import lombok.*;
 import javax.persistence.*;
@@ -26,6 +25,9 @@ public class Posts extends BaseTimeEntity {
 
     @Column
     private String content;
+
+    @Column
+    private  String imgUrl;
 
     @Column
     private String writer;

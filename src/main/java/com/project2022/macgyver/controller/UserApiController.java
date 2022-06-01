@@ -78,9 +78,4 @@ public class UserApiController {
         userService.delete(id);
     }
 
-    @GetMapping("/test")
-    public List<PostsListResponseDto> test(){
-        return postsService.findByUser(259L);
-    }
-
 }

@@ -14,6 +14,8 @@ public class PostsListResponseDto {
     private String writer;
     private String content;
     private LocalDateTime createdDate;
+
+    private  String imgUrl;
     private Long userid;
 
     public PostsListResponseDto(Posts posts) {
@@ -23,6 +25,7 @@ public class PostsListResponseDto {
         this.content = posts.getContent();
         this.createdDate = posts.getCreatedDate();
         this.writer = posts.getWriter();
+        this.imgUrl = posts.getImgUrl();
         this.userid = posts.getUser().getId();
     }
 }

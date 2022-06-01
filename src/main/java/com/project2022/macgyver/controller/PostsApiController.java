@@ -1,15 +1,12 @@
 package com.project2022.macgyver.controller;
 
-import com.project2022.macgyver.domain.user.User;
 import com.project2022.macgyver.dto.PostsDto;
 import com.project2022.macgyver.dto.PostsListResponseDto;
 import com.project2022.macgyver.service.PostsService;
 import com.project2022.macgyver.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /** REST API Controller */
@@ -32,6 +29,5 @@ public class PostsApiController {
     public List<PostsListResponseDto> postsList() {
         return postsService.findAllAsc();
     }
-
 
 }
