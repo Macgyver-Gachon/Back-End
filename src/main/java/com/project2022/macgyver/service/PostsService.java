@@ -4,19 +4,15 @@ import com.project2022.macgyver.domain.posts.Posts;
 import com.project2022.macgyver.domain.posts.PostsRepository;
 import com.project2022.macgyver.domain.user.User;
 import com.project2022.macgyver.domain.user.UserRepository;
-import com.project2022.macgyver.dto.CampListResponseDto;
 import com.project2022.macgyver.dto.PostsDto;
 import com.project2022.macgyver.dto.PostsListResponseDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j; // logging
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
-import java.util.stream.Collectors;
+
 
 @Slf4j
 @RequiredArgsConstructor
@@ -28,8 +24,12 @@ public class PostsService {
 
     // CREATE
     @Transactional
-    public Long save(PostsDto.Request requestDto) {
-        return postsRepository.save(requestDto.toEntity()).getId();
+    public Long save(PostsDto.Request requestDto, User user) {
+        user = userRepository.findByEmail(user.getEmail());
+        requestDto.setUser(user);
+        Posts posts = requestDto.toEntity();
+        postsRepository.save(posts);
+        return posts.getId();
     }
 
     // READ
@@ -61,20 +61,6 @@ public class PostsService {
         postsRepository.delete(posts);
     }
 
-
-    // Paging and Sort
-    @Transactional(readOnly = true)
-    public Page<Posts> pageList(Pageable pageable) {
-        return postsRepository.findAll(pageable);
-    }
-
-    // search
-    @Transactional(readOnly = true)
-    public Page<Posts> search(String keyword, Pageable pageable) {
-        Page<Posts> postsList = postsRepository.findByTitleContaining(keyword, pageable);
-        return postsList;
-    }
-
     /*User로 작성글 모두 조회*/
     @Transactional
     public List<PostsListResponseDto> findByUser(Long id){
@@ -84,6 +70,5 @@ public class PostsService {
     @Transactional
     public List<PostsListResponseDto> findAllAsc() {
         return postsRepository.findAllAsc();
-
     }
 }

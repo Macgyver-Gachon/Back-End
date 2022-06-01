@@ -1,12 +1,16 @@
 package com.project2022.macgyver.controller;
 
+import com.project2022.macgyver.domain.user.User;
 import com.project2022.macgyver.dto.PostsDto;
 import com.project2022.macgyver.dto.PostsListResponseDto;
+import com.project2022.macgyver.dto.PostsSaveRequestDto;
 import com.project2022.macgyver.service.PostsService;
 import com.project2022.macgyver.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /** REST API Controller */
@@ -38,7 +42,8 @@ public class PostsApiController {
 
     // 글 작성
     @PostMapping("/posts")
-    public Long save(@RequestBody PostsDto.Request requestDto ) {
-        return postsService.save(requestDto);
+    public Long save(@RequestBody PostsDto.Request requestDto, HttpServletRequest request) {
+        User user = userService.getUser(request);
+        return postsService.save(requestDto, user);
     }
 }
