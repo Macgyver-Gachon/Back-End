@@ -64,18 +64,18 @@ com/project2022/macgyver/dto/CampResponseDto.java
  com.project2022.macgyver.dto.CampResponseDto$CampResponseDtoBuilder
 com/project2022/macgyver/dto/BookmarkListResponseDto.java
  com.project2022.macgyver.dto.BookmarkListResponseDto
-com/project2022/macgyver/service/CommentService.java
- com.project2022.macgyver.service.CommentService
 com/project2022/macgyver/domain/posts/PostsRepository.java
  com.project2022.macgyver.domain.posts.PostsRepository
+com/project2022/macgyver/service/CommentService.java
+ com.project2022.macgyver.service.CommentService
 com/project2022/macgyver/controller/BookmarkApiController.java
  com.project2022.macgyver.controller.BookmarkApiController
 com/project2022/macgyver/controller/CampApiController.java
  com.project2022.macgyver.controller.CampApiController
-com/project2022/macgyver/controller/NoticeApiController.java
- com.project2022.macgyver.controller.NoticeApiController
 com/project2022/macgyver/config/jwt/CustomAuthenticationEntryPoint.java
  com.project2022.macgyver.config.jwt.CustomAuthenticationEntryPoint
+com/project2022/macgyver/dto/PostsListResponseDto.java
+ com.project2022.macgyver.dto.PostsListResponseDto
 com/project2022/macgyver/dto/CampAllListResponseDto.java
  com.project2022.macgyver.dto.CampAllListResponseDto
 com/project2022/macgyver/config/jwt/JwtRequestFilter.java
@@ -83,11 +83,6 @@ com/project2022/macgyver/config/jwt/JwtRequestFilter.java
 com/project2022/macgyver/domain/user/User.java
  com.project2022.macgyver.domain.user.User
  com.project2022.macgyver.domain.user.User$UserBuilder
-com/project2022/macgyver/controller/CommentApiController.java
- com.project2022.macgyver.controller.CommentApiController
-com/project2022/macgyver/domain/notice/Notice.java
- com.project2022.macgyver.domain.notice.Notice
- com.project2022.macgyver.domain.notice.Notice$NoticeBuilder
 com/project2022/macgyver/service/CampService.java
  com.project2022.macgyver.service.CampService
 com/project2022/macgyver/domain/camp/CampRepository.java
@@ -112,10 +107,3 @@ com/project2022/macgyver/controller/AdminApiController.java
  com.project2022.macgyver.controller.AdminApiController
 com/project2022/macgyver/domain/BaseTimeEntity.java
  com.project2022.macgyver.domain.BaseTimeEntity
-com/project2022/macgyver/domain/notice/NoticeNotFoundException.java
- com.project2022.macgyver.domain.notice.NoticeNotFoundException
-com/project2022/macgyver/domain/notice/NoticeInput.java
- com.project2022.macgyver.domain.notice.NoticeInput
- com.project2022.macgyver.domain.notice.NoticeInput$NoticeInputBuilder
-com/project2022/macgyver/domain/notice/NoticeRepository.java
- com.project2022.macgyver.domain.notice.NoticeRepository

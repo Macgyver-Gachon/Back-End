@@ -2,6 +2,7 @@ package com.project2022.macgyver.controller;
 
 import com.project2022.macgyver.domain.user.User;
 import com.project2022.macgyver.dto.PostsDto;
+import com.project2022.macgyver.dto.PostsListResponseDto;
 import com.project2022.macgyver.service.PostsService;
 import com.project2022.macgyver.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -9,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /** REST API Controller */
 @RequestMapping("/api")
@@ -19,31 +21,17 @@ public class PostsApiController {
     private final PostsService postsService;
     private final UserService userService;
 
-
-    // CREATE
-    @PostMapping("/posts")
-    public ResponseEntity save(@RequestBody PostsDto.Request dto, HttpServletRequest request) {
-        User user = userService.getUser(request);
-        return ResponseEntity.ok(postsService.save(dto, user.getNickname()));
+    // 글 상세보기
+    @GetMapping("/posts/read/{id}")
+    public PostsDto.Response posts(@PathVariable Long id) {
+        return postsService.findById(id);
     }
 
-    // READ
-    @GetMapping("/posts/{id}")
-    public ResponseEntity read(@PathVariable Long id) {
-        return ResponseEntity.ok(postsService.findById(id));
+    //글 전체보기
+    @GetMapping("/posts")
+    public List<PostsListResponseDto> postsList() {
+        return postsService.findAllAsc();
     }
 
-    // UPDATE
-    @PutMapping("/posts/{id}")
-    public ResponseEntity update(@PathVariable Long id, @RequestBody PostsDto.Request dto) {
-        postsService.update(id, dto);
-        return ResponseEntity.ok(id);
-    }
 
-    // DELETE
-    @DeleteMapping("/posts/{id}")
-    public ResponseEntity delete(@PathVariable Long id) {
-        postsService.delete(id);
-        return ResponseEntity.ok(id);
-    }
 }

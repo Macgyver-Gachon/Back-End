@@ -4,7 +4,9 @@ import com.project2022.macgyver.domain.posts.Posts;
 import com.project2022.macgyver.domain.posts.PostsRepository;
 import com.project2022.macgyver.domain.user.User;
 import com.project2022.macgyver.domain.user.UserRepository;
+import com.project2022.macgyver.dto.CampListResponseDto;
 import com.project2022.macgyver.dto.PostsDto;
+import com.project2022.macgyver.dto.PostsListResponseDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j; // logging
 import org.springframework.data.domain.Page;
@@ -13,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -64,12 +67,6 @@ public class PostsService {
         postsRepository.delete(posts);
     }
 
-    // Views Counting
-    @Transactional
-    public int updateView(Long id) {
-        return postsRepository.updateView(id);
-    }
-
 
     // Paging and Sort
     @Transactional(readOnly = true)
@@ -88,5 +85,11 @@ public class PostsService {
     @Transactional
     public List<Posts> findByUser(User user){
         return postsRepository.findByUser(user);
+    }
+
+    @Transactional
+    public List<PostsListResponseDto> findAllAsc() {
+        return postsRepository.findAllAsc();
+
     }
 }

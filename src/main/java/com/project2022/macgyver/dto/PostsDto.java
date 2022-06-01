@@ -20,21 +20,21 @@ public class PostsDto {
     @Builder
     public static class Request {
         private Long id;
+        private String category;
         private String title;
         private String writer;
         private String content;
         private LocalDateTime createdDate, modifiedDate;
-        private int view;
         private User user;
 
         /* Dto -> Entity */
         public Posts toEntity() {
             Posts posts = Posts.builder()
                     .id(id)
+                    .category(category)
                     .title(title)
                     .writer(writer)
                     .content(content)
-                    .view(0)
                     .user(user)
                     .build();
 
@@ -50,25 +50,24 @@ public class PostsDto {
     @Getter
     public static class Response {
         private Long id;
+        private String category;
         private String title;
         private String writer;
         private String content;
         private LocalDateTime createdDate, modifiedDate;
-        private int view;
         private Long userid;
         private List<CommentDto.Response> comments;
 
         /* Entity -> Dto*/
         public Response(Posts posts) {
             this.id = posts.getId();
+            this.category = posts.getCategory();
             this.title = posts.getTitle();
             this.writer = posts.getWriter();
             this.content = posts.getContent();
             this.createdDate = posts.getCreatedDate();
             this.modifiedDate = posts.getModifiedDate();
-            this.view = posts.getView();
             this.userid = posts.getUser().getId();
-            this.comments = posts.getComments().stream().map(CommentDto.Response::new).collect(Collectors.toList());
-        }
+            }
     }
 }
