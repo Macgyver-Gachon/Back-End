@@ -83,8 +83,8 @@ public class PostsService {
 
     /*User로 작성글 모두 조회*/
     @Transactional
-    public List<Posts> findByUser(User user){
-        return postsRepository.findByUser(user);
+    public List<PostsListResponseDto> findByUser(Long id){
+        return postsRepository.findByUserid(id);
     }
 
     @Transactional

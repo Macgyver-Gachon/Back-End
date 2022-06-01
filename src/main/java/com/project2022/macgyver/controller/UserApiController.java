@@ -5,6 +5,7 @@ import com.project2022.macgyver.domain.bookmark.Bookmark;
 import com.project2022.macgyver.domain.posts.Posts;
 import com.project2022.macgyver.domain.user.User;
 import com.project2022.macgyver.dto.CampListResponseDto;
+import com.project2022.macgyver.dto.PostsListResponseDto;
 import com.project2022.macgyver.service.BookmarkService;
 import com.project2022.macgyver.service.CampService;
 import com.project2022.macgyver.service.PostsService;
@@ -52,11 +53,12 @@ public class UserApiController {
 
     /*나의 작성글 조회*/
     @GetMapping("/user/post")
-    public List<Posts> myPost(HttpServletRequest request){
+    public List<PostsListResponseDto> myPost(HttpServletRequest request){
         User user = userService.getUser(request);
 
-        return postsService.findByUser(user);
+        return postsService.findByUser(user.getId());
     }
+
     /*나의 북마크 조회*/
     @GetMapping("/user/bookmark")
     public List<CampListResponseDto> myBookmark(HttpServletRequest request){
@@ -74,6 +76,11 @@ public class UserApiController {
     @DeleteMapping("/user/delete/{id}")
     public void delete(@PathVariable Long id) {
         userService.delete(id);
+    }
+
+    @GetMapping("/test")
+    public List<PostsListResponseDto> test(){
+        return postsService.findByUser(259L);
     }
 
 }
