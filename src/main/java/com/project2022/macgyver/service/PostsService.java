@@ -12,6 +12,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Slf4j
 @RequiredArgsConstructor
 @Service
@@ -80,5 +82,11 @@ public class PostsService {
     public Page<Posts> search(String keyword, Pageable pageable) {
         Page<Posts> postsList = postsRepository.findByTitleContaining(keyword, pageable);
         return postsList;
+    }
+
+    /*User로 작성글 모두 조회*/
+    @Transactional
+    public List<Posts> findByUser(User user){
+        return postsRepository.findByUser(user);
     }
 }

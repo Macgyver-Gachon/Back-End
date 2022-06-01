@@ -2,10 +2,12 @@ package com.project2022.macgyver.controller;
 
 import com.project2022.macgyver.config.jwt.JwtProperties;
 import com.project2022.macgyver.domain.bookmark.Bookmark;
+import com.project2022.macgyver.domain.posts.Posts;
 import com.project2022.macgyver.domain.user.User;
 import com.project2022.macgyver.dto.CampListResponseDto;
 import com.project2022.macgyver.service.BookmarkService;
 import com.project2022.macgyver.service.CampService;
+import com.project2022.macgyver.service.PostsService;
 import com.project2022.macgyver.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +30,7 @@ public class UserApiController {
     private final UserService userService;
     private final BookmarkService bookmarkService;
     private final CampService campService;
+    private final PostsService postsService;
 
     @GetMapping("/oauth/token")
     public ResponseEntity getLogin(@RequestParam("code") String code) {
@@ -48,6 +51,13 @@ public class UserApiController {
         return userService.getUser(request);
     }
 
+    /*나의 작성글 조회*/
+    @GetMapping("/user/post")
+    public List<Posts> myPost(HttpServletRequest request){
+        User user = userService.getUser(request);
+
+        return postsService.findByUser(user);
+    }
     /*나의 북마크 조회*/
     @GetMapping("/user/bookmark")
     public List<CampListResponseDto> myBookmark(HttpServletRequest request){
