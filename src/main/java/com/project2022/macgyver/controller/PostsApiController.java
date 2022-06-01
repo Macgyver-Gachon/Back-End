@@ -36,4 +36,9 @@ public class PostsApiController {
         postsService.delete(id);
     }
 
+    // 글 작성
+    @PostMapping("/posts")
+    public Long save(@RequestBody PostsDto.Request requestDto ) {
+        return postsService.save(requestDto);
+    }
 }

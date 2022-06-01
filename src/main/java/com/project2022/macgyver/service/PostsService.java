@@ -14,6 +14,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -27,15 +28,8 @@ public class PostsService {
 
     // CREATE
     @Transactional
-    public Long save(PostsDto.Request dto, String nickname) {
-        // User 정보를 가져와 dto 에 담아준다.
-        User user = userRepository.findByNickname(nickname);
-        dto.setUser(user);
-        log.info("PostsService save() 실행");
-        Posts posts = dto.toEntity();
-        postsRepository.save(posts);
-
-        return posts.getId();
+    public Long save(PostsDto.Request requestDto) {
+        return postsRepository.save(requestDto.toEntity()).getId();
     }
 
     // READ
