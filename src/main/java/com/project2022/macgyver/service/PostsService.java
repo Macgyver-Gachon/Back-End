@@ -6,6 +6,7 @@ import com.project2022.macgyver.domain.user.User;
 import com.project2022.macgyver.domain.user.UserRepository;
 import com.project2022.macgyver.dto.PostsDto;
 import com.project2022.macgyver.dto.PostsListResponseDto;
+import com.project2022.macgyver.dto.PostsSaveRequestDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j; // logging
 import org.springframework.stereotype.Service;
@@ -24,12 +25,15 @@ public class PostsService {
 
     // CREATE
     @Transactional
-    public Long save(PostsDto.Request requestDto, User user) {
-        user = userRepository.findByEmail(user.getEmail());
-        requestDto.setUser(user);
-        Posts posts = requestDto.toEntity();
-        postsRepository.save(posts);
-        return posts.getId();
+    public Long save(PostsSaveRequestDto requestDto, User user) {
+        Posts post = new Posts();
+        post.setTitle(requestDto.getTitle());
+        post.setContent(requestDto.getContent());
+        post.setImgUrl(requestDto.getImgUrl());
+        post.setUser(user);
+        post.setWriter(user.getEmail());
+        postsRepository.save(post);
+        return post.getId();
     }
 
     // READ
@@ -68,7 +72,7 @@ public class PostsService {
     }
 
     @Transactional
-    public List<PostsListResponseDto> findAllAsc() {
-        return postsRepository.findAllAsc();
+    public List<PostsListResponseDto> findAllDesc() {
+        return postsRepository.findAllDesc();
     }
 }

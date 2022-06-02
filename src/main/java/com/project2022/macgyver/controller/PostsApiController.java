@@ -31,7 +31,7 @@ public class PostsApiController {
     // 글 전체보기
     @GetMapping("/posts")
     public List<PostsListResponseDto> postsList() {
-        return postsService.findAllAsc();
+        return postsService.findAllDesc();
     }
 
     // 글 삭제
@@ -42,7 +42,7 @@ public class PostsApiController {
 
     // 글 작성
     @PostMapping("/posts")
-    public Long save(@RequestBody PostsDto.Request requestDto, HttpServletRequest request) {
+    public Long save(@RequestBody PostsSaveRequestDto requestDto, HttpServletRequest request) {
         User user = userService.getUser(request);
         return postsService.save(requestDto, user);
     }

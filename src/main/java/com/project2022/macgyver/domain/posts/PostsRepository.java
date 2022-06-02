@@ -15,8 +15,10 @@ import java.util.List;
 public interface PostsRepository extends JpaRepository<Posts, Long> {
 
     @Query("SELECT p FROM Posts p ORDER BY p.id DESC")
-    List<PostsListResponseDto> findAllAsc();
+    List<PostsListResponseDto> findAllDesc();
 
     @Query("SELECT p FROM Posts p WHERE p.user.id=:userid")
     List<PostsListResponseDto> findByUserid(@Param("userid") Long userid);
+
+
 }
