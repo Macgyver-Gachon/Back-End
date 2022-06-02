@@ -36,14 +36,6 @@ public class CommentsService {
         return comments.getId();
     }
 
-    /* READ */
-    @Transactional(readOnly = true)
-    public List<CommentsDto.Response> findAll(Long id) {
-        Posts posts = postsRepository.findById(id).orElseThrow(() ->
-                new IllegalArgumentException("해당 게시글이 존재하지 않습니다. id: " + id));
-        List<Comments> comments = posts.getComments();
-        return comments.stream().map(CommentsDto.Response::new).collect(Collectors.toList());
-    }
 
     /* UPDATE */
     @Transactional

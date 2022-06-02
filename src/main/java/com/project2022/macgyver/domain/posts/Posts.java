@@ -37,10 +37,6 @@ public class Posts extends BaseTimeEntity {
     @JoinColumn(name = "userid", referencedColumnName = "id")
     private User user;
 
-    @OneToMany(mappedBy = "posts", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
-    @OrderBy("id asc") // 댓글 정렬
-    private List<Comments> comments;
-
     // 게시글 수정
     public void update(String title, String content) {
         this.title = title;

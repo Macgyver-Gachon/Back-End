@@ -27,12 +27,6 @@ public class CommentsApiController {
         return commentsService.save(id, user, dto);
     }
 
-    /* READ */
-    @GetMapping("/posts/{id}/comments")
-    public List<CommentsDto.Response> read(@PathVariable Long id) {
-        return commentsService.findAll(id);
-    }
-
     /* UPDATE */
     @PutMapping({"/posts/{id}/comments/{id}"})
     public ResponseEntity update(@PathVariable Long id, @RequestBody CommentsDto.Request dto) {
