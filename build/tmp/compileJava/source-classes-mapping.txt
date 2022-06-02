@@ -79,12 +79,29 @@ com/project2022/macgyver/service/BookmarkService.java
  com.project2022.macgyver.service.BookmarkService
 com/project2022/macgyver/domain/posts/PostsRepository.java
  com.project2022.macgyver.domain.posts.PostsRepository
+com/project2022/macgyver/controller/CommentsApiController.java
+ com.project2022.macgyver.controller.CommentsApiController
+com/project2022/macgyver/dto/PostsSaveRequestDto.java
+ com.project2022.macgyver.dto.PostsSaveRequestDto
+ com.project2022.macgyver.dto.PostsSaveRequestDto$PostsSaveRequestDtoBuilder
 com/project2022/macgyver/controller/PostsApiController.java
  com.project2022.macgyver.controller.PostsApiController
 com/project2022/macgyver/dto/PostsListResponseDto.java
  com.project2022.macgyver.dto.PostsListResponseDto
 com/project2022/macgyver/service/PostsService.java
  com.project2022.macgyver.service.PostsService
+com/project2022/macgyver/domain/comments/CommentsRepository.java
+ com.project2022.macgyver.domain.comments.CommentsRepository
+com/project2022/macgyver/dto/CommentsDto.java
+ com.project2022.macgyver.dto.CommentsDto
+ com.project2022.macgyver.dto.CommentsDto$Request
+ com.project2022.macgyver.dto.CommentsDto$Request$RequestBuilder
+ com.project2022.macgyver.dto.CommentsDto$Response
+com/project2022/macgyver/domain/comments/Comments.java
+ com.project2022.macgyver.domain.comments.Comments
+ com.project2022.macgyver.domain.comments.Comments$CommentsBuilder
+com/project2022/macgyver/service/CommentsService.java
+ com.project2022.macgyver.service.CommentsService
 com/project2022/macgyver/domain/posts/Posts.java
  com.project2022.macgyver.domain.posts.Posts
  com.project2022.macgyver.domain.posts.Posts$PostsBuilder

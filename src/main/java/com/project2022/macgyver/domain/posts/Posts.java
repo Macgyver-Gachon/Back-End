@@ -1,6 +1,7 @@
 package com.project2022.macgyver.domain.posts;
 
 import com.project2022.macgyver.domain.BaseTimeEntity;
+import com.project2022.macgyver.domain.comments.Comments;
 import com.project2022.macgyver.domain.user.User;
 import lombok.*;
 import javax.persistence.*;
@@ -35,6 +36,10 @@ public class Posts extends BaseTimeEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userid", referencedColumnName = "id")
     private User user;
+
+    @OneToMany(mappedBy = "posts", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @OrderBy("id asc") // 댓글 정렬
+    private List<Comments> comments;
 
     // 게시글 수정
     public void update(String title, String content) {
